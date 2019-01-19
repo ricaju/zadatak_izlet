@@ -6,7 +6,10 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  
+}
+
+header {
+	padding-bottom: 100px;
 }
 
 header li {
@@ -15,17 +18,15 @@ header li {
 header li a {
 	color: black;
 	text-decoration: none;
-	
 }
 
-#add_btn, #logout_btn {
+#add_btn, #logout_btn{
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	border-radius: 40%;
 	border: none;
 	background-color: #009999;
 	font-size: 40px;
-
 }
 
 #add_btn:hover {
@@ -34,6 +35,15 @@ header li a {
 
 #logout_btn:hover {
 	color:#7FFFD4;
+}
+
+#link_na_str:hover {
+	color:#7FFFD4;
+}
+
+#link_na_str {
+	color: black;
+	text-decoration: none;
 }
 
 #add_btn {
@@ -49,14 +59,42 @@ header li a {
 }
 
 #izlet{
-	background-color: transparent;
 	max-width: 1000px;
 	max-height: 200px;
-	border-style: solid;
-	border-color: black;
-	border-width: 2px;
+	padding-bottom: 250px;
+	opacity: 0.9;
 }
 
 #slika_izleta {
-	max-height: 194px;
+	max-height: 200px;
+	min-height: 199px;
+	max-width: 200px;
+	min-width: 199px;
+}
+
+#text_izleta{
+	background-color: #009999;
+	text-align: center;
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	font-size: 25px;
+	max-height: 200px;
+	max-width: 600px;
+	min-width: 600px;
+	min-height: 199px;
+}
+
+#cijena_i_o{
+	text-align: center;
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	font-size: 25px;
+	max-width: 200px;
+	min-width: 199px;
+	max-height: 200px;
+	min-height: 199px;
+}
+
+#izlet_row {
+	background-color: white;
 }
