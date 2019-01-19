@@ -18,27 +18,45 @@ header li a {
 	
 }
 
-button {
+#add_btn, #logout_btn {
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	border-radius: 40%;
 	border: none;
 	background-color: #009999;
-	font-size: 20px;
+	font-size: 40px;
 
 }
-button:hover {
+
+#add_btn:hover {
 	color:#7FFFD4;
 }
 
-.btn1 {
+#logout_btn:hover {
+	color:#7FFFD4;
+}
+
+#add_btn {
 	position: absolute;
 	top: 15px;
 	left: 20px;
 }
 
-.btn2 {
+#logout_btn {
 	position: absolute;
 	top: 15px;
 	right: 20px;
+}
+
+#izlet{
+	background-color: transparent;
+	max-width: 1000px;
+	max-height: 200px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+}
+
+#slika_izleta {
+	max-height: 194px;
 }
