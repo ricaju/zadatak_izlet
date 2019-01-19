@@ -1,0 +1,44 @@
+body{
+	background: url("back.jpg")no-repeat center center fixed;
+	/*background-repeat: no-repeat;
+	background-size: initial;*/
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+}
+
+header li {
+	overflow: hidden;	
+}
+header li a {
+	color: black;
+	text-decoration: none;
+	
+}
+
+button {
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	border-radius: 40%;
+	border: none;
+	background-color: #009999;
+	font-size: 20px;
+
+}
+button:hover {
+	color:#7FFFD4;
+}
+
+.btn1 {
+	position: absolute;
+	top: 15px;
+	left: 20px;
+}
+
+.btn2 {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}
