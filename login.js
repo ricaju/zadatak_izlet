@@ -15,14 +15,5 @@ function login(){
 		}
 }
 
-/*function enter(){ 
-	var x = document.getElementById("inputPassword")
-	x.addEventListener("keydown", function(event){
-		if(event.keyCode == 13){
-			console.log("madbfjsd");
-			document.getElementById("logButton").click();
-		}
-	})
-}*/
 
 
