@@ -96,5 +96,22 @@ header li a {
 }
 
 #izlet_row {
-	background-color: 2white;
+	background-color: white;
+}
+
+#pojedini_about {
+	background-color: white;
+	max-width: 1000px;
+	max-height: 400px;
+	min-width: 1000px;
+	min-height: 400px;
+	padding-bottom: 250px;
+	opacity: 0.9;
+}
+
+#ime_destinacije {
+	text-align: center;
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	font-size: 25px;
 }
