@@ -1,7 +1,6 @@
 var pokusaji = 3;
 function login(){
 	if(document.getElementById("inputUserame").value == "korisnik" && document.getElementById("inputPassword").value == "1234"){  //iz baze ce se vući username i password
-		console.log("kasjdfksdjf");
 		alert ("Successfull login");
 		window.location = "izleti.html";
 	}
@@ -15,3 +14,13 @@ function login(){
 			document.getElementById("logButton").disabled = true;
 		}
 	}
+
+function enter(){  //nedovrseno
+	var x = document.getElementById("inputPassword");
+	x.addEventListener("keyup", function(e){
+		if(e.keyCode === 13){
+			document.getElementById("logButton").click();
+		}
+	})
+}
+
