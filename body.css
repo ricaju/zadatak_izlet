@@ -136,3 +136,10 @@ background-size: cover;
   top: 35px;
   right: 85px;
 }
+
+#rememberMe{
+  font-size: 15px;
+  position: relative;
+  top: -60px;
+  right: 1px;
+}
