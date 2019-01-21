@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="pojedini_izlet.css">
 		<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	</head>
@@ -9,19 +9,26 @@
 <body>
 	<header>
 		<ul>
-			<li><a class="newtrip" href="novi_izlet"><button class="btn1" id = "add_btn">Back</button></a></li>
-			<li><a class="logout" href="#logout"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+			<li><a class="newtrip" href="izleti.html"><button class="btn1" id = "add_btn">Back</button></a></li>
+			<li><a class="logout" href="register.html"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+			<h1 align="center" >Zagreb</h1>
 		</ul>
 	</header>
 
 <div class="background"></div>
 
+
 <div class="container">
-	<h1 id="ime_destinacije">IME DESTINACIJE</h1>
+	
 	<div class="row">
 		<div class="col-lg-" id = "pojedini_about">
+			Zagreb je glavni grad Republike Hrvatske, i najveći grad u Hrvatskoj po broju stanovnika. Šire područje grada okuplja više od milijun stanovnika. Povijesno gledajući, grad Zagreb je izrastao iz dva naselja na susjednim brežuljcima, Gradeca i Kaptola, koji čine jezgru današnjeg grada, njegovo povijesno središte. Nalazi se na jugozapadnom rubu Panonske nizine na prosječnoj nadmorskoj visini od 122 m, podno južnih padina Medvednice, na lijevoj i desnoj obali rijeke Save. Položaj grada, koji je na mjestu spajanja alpske, dinarske, jadranske i Panonske regije, omogućio je da Zagreb postane most između srednjoeuropskog i jadranskog područja.
 
-		</div>
+Prema popisu stanovništva iz 2011. u Zagrebu živi 790.017 stanovnika.[2][3] Kao najveći i glavni grad, Zagreb je kulturno, znanstveno, gospodarsko i upravno središte Republike Hrvatske i Zagrebačke županije. Zahvaljujući ulozi najvećeg prometnog centra u Hrvatskoj, razvijenoj industriji s dugom tradicijom i znanstvenim i istraživačkim ustanovama, Zagreb je gospodarski najrazvijeniji grad u Hrvatskoj.
+
+Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima položaj županije.
+
+</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-">
@@ -29,8 +36,25 @@
 	</div>
 </div>
 
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr3Xo2yuO_ROrGxQ3YQ7FlzHgQsrIJT9I&callback=myMap"></script>
 </body>
 </html>
