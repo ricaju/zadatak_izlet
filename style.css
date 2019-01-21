@@ -20,7 +20,7 @@ header li a {
 	text-decoration: none;
 }
 
-#add_btn, #logout_btn{
+#add_btn, #logout_btn, #advanced_button{
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	border-radius: 40%;
@@ -41,6 +41,10 @@ header li a {
 	color:#7FFFD4;
 }
 
+#advanced_button:hover {
+	color:#7FFFD4;
+}
+
 #link_na_str {
 	color: black;
 	text-decoration: none;
@@ -56,6 +60,12 @@ header li a {
 	position: absolute;
 	top: 15px;
 	right: 20px;
+}
+
+#advanced_button {
+	position: relative;
+	top: -50px;
+	left: 100px;
 }
 
 #izlet{
@@ -116,6 +126,13 @@ header li a {
 	font-size: 25px;
 }
 
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin-left:35%;
+}
 .container-1 input#search{
   width: 400px;
   height: 50px;
@@ -127,18 +144,12 @@ header li a {
   -moz-border-radius: 5px;
   border-radius: 40px;
   top: -40px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
+  padding-left: 40px;
 }
 
-.box{
-	position: relative;
-	margin-left:35%;
-}
-
-#search{
-	color: black;
-	font-weight: bold;
-	font-family: 'Amatic SC', cursive;
-}
 
 .container-1 input#search::-webkit-input-placeholder {
    color: #65737e;
