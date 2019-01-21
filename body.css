@@ -119,3 +119,20 @@ background-size: cover;
   color: white;
   background-color: #3b5998;
 }
+
+#pozicija{
+  margin-top: 150px;
+}
+
+#logButton {
+  margin-left: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+#password{
+  font-size: 12px;
+  position: relative;
+  top: 35px;
+  right: 85px;
+}
