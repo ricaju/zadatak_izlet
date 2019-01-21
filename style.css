@@ -116,6 +116,13 @@ header li a {
 	font-size: 25px;
 }
 
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin-left:35%;
+}
 .container-1 input#search{
   width: 400px;
   height: 50px;
@@ -127,18 +134,12 @@ header li a {
   -moz-border-radius: 5px;
   border-radius: 40px;
   top: -40px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
+  padding-left: 40px;
 }
 
-.box{
-	position: relative;
-	margin-left:35%;
-}
-
-#search{
-	color: black;
-	font-weight: bold;
-	font-family: 'Amatic SC', cursive;
-}
 
 .container-1 input#search::-webkit-input-placeholder {
    color: #65737e;
