@@ -13,14 +13,16 @@ function login(){
 			document.getElementById("inputPassword").disabled = true;
 			document.getElementById("logButton").disabled = true;
 		}
-	}
+}
 
-function enter(){  //nedovrseno
-	var x = document.getElementById("inputPassword");
-	x.addEventListener("keyup", function(e){
-		if(e.keyCode === 13){
+/*function enter(){ 
+	var x = document.getElementById("inputPassword")
+	x.addEventListener("keydown", function(event){
+		if(event.keyCode == 13){
+			console.log("madbfjsd");
 			document.getElementById("logButton").click();
 		}
 	})
-}
+}*/
+
 
