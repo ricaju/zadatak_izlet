@@ -29,6 +29,14 @@ header li a {
 	font-size: 40px;
 }
 
+#advanced_button {
+	display: none;
+}
+
+#advanced {
+	display: none;
+}
+
 #add_btn:hover {
 	color:#7FFFD4;
 }
@@ -60,12 +68,6 @@ header li a {
 	position: absolute;
 	top: 15px;
 	right: 20px;
-}
-
-#advanced_button {
-	position: relative;
-	top: -50px;
-	left: 100px;
 }
 
 #izlet{
@@ -173,4 +175,5 @@ header li a {
   margin-top: 17px;
   z-index: 1;
   color: #4f5b66;
+  padding-top: 12px;
 }
