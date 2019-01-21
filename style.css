@@ -20,7 +20,7 @@ header li a {
 	text-decoration: none;
 }
 
-#add_btn, #logout_btn{
+#add_btn, #logout_btn, #advanced_button{
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	border-radius: 40%;
@@ -41,6 +41,10 @@ header li a {
 	color:#7FFFD4;
 }
 
+#advanced_button:hover {
+	color:#7FFFD4;
+}
+
 #link_na_str {
 	color: black;
 	text-decoration: none;
@@ -56,6 +60,12 @@ header li a {
 	position: absolute;
 	top: 15px;
 	right: 20px;
+}
+
+#advanced_button {
+	position: relative;
+	top: -50px;
+	left: 100px;
 }
 
 #izlet{
