@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="komplicirano.css">
 </head>
 <body>
@@ -24,29 +24,43 @@
             <h5 class="card-title text-center">Create your new trip</h5>
             <form class="form-signin">
               <div class="form-label-group">
-                <input type="text" id="inputUserame" class="form-control" placeholder="Location" required autofocus>
-                <label for="inputUserame"></label>
+                <input type="text" id="Location" class="form-control" placeholder="Location" required autofocus autocomplete="off">
+                <label for="inputLocation"></label>
               </div>
 
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Number of people" required>
-                <label for="inputEmail"></label>
+                <input type="text" id="Transport" class="form-control" placeholder="Transport" required autofocus autocomplete="off">
+                <label for="inputTransport"></label>
               </div>
+
+              <div class="form-label-group">
+                <input type="text" id="Number_of_people" class="form-control" placeholder="Min number of people" required autofocus autocomplete="off">
+                <label for="inputNumber_of_people"></label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="text" id="Total cost" class="form-control" placeholder="Max number of people" required autofocus autocomplete="off">
+                <label for="inputTotal_cost"></label>
               
 
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Transport" required>
-                <label for="inputEmail"></label>
-              </div>
+                <input type="text" id="Total cost" class="form-control" placeholder="Total cost" required autofocus autocomplete="off">
+                <label for="inputTotal_cost"></label>
+                <div class="form-label-group">
 
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Exspenses" required>
-                <label for="inputEmail"></label>
-              </div>
-              
+                <input type="text" id="Total cost" class="form-control" placeholder="Cost per user" required autofocus autocomplete="off">
+                <label for="inputTotal_cost"></label>
+
+             <div class="form-label-group">
+                <textarea type="text-area" id="About" class="form-control" placeholder="About the trip" autocomplete="off"></textarea>
+                <label for="About"></label>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" href="izleti.html">Submit</button>
+
+
               </div>
             </form>
-          </div>
+           </div>
         </div>
       </div>
     </div>
