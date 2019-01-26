@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<script type="text/javascript" src="izleti.js"></script>
+</head>
+
+<body>
+	<header>
+		<ul>
+			<li><a class="newtrip" href="novi_izlet.html"><button class="btn1" id = "add_btn">+ Add new trip</button></a></li>
+			<li><a class="logout" href="register.html"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+		</ul>
+
+		<div class="box">
+  		<div class="container-1">
+     			<span class="icon" ><i class="fa fa-search"></i></span>
+      			<input type="search" id="search" onchange="AdvanceSearch()"  placeholder="Search..." />
+      			<button id ="advanced_button" name="open_advanced">Advanced search</button>
+      		<div id="advanced">
+      		<div>
+      			<input type="checkbox" id="by_destination" name="search_by_destination">
+      			<label for="search_by_rate">Search by destination</label>
+      		</div>
+      		<div>
+      			<input type="checkbox" id="by_rate" name="search_by_rate">
+      			<label for="search_by_rate">Search by rate</label>
+      		</div>
+      		<div>
+      			<input type="checkbox" id="by_price" name="search_by_price">
+      			<label for="search_by_price">Search by price</label>
+      		</div>
+      		<div>
+      			<input type="checkbox" id="by_date" name="search_by_date">
+      			<label for="search_by_price">Search by date</label>
+      		</div>
+      		<div>
+      			<input type="checkbox" id="by_username" name="search_by_username">
+      			<label for="search_by_username">Search by username</label>
+      		</div>
+      		</div>
+		</div>
+	</header>
+
+<div class="background"></div>
+
+<div class="container" id="izlet"> 
+	<div class="row" id="izlet_row">
+		<div class="col-md-">
+			<a href = "pojedini_izlet.html">
+				<image src="zagreb.jpg" id="slika_izleta" >
+				</image>
+			</a>
+		</div>
+		<div class="col-lg-" id="text_izleta">
+			<a id = "link_na_str" href = "pojedini_izlet.html">
+				<h1>ZAGREB</h1 id="destinacija_izleta">
+			</a>
+			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
+		</div>
+		<div class="col-" id="cijena_i_o">
+			<h3>PRICE</h3>
+			<p>100 kn</p>
+			<h3>RATING</h3>
+			<p>4.6</p>
+		</div>
+	</div>
+</div>
+
+<div class="container" id="izlet"> 
+	<div class="row" id="izlet_row">
+		<div class="col-md-">
+			<a href = "">
+				<image src="zagreb.jpg" id="slika_izleta">
+				</image>
+			</a>
+		</div>
+		<div class="col-lg-" id="text_izleta">
+			<a id = "link_na_str" href = "">
+				<h1>ZAGREB</h1 id="destinacija_izleta">
+			</a>
+			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
+		</div>
+		<div class="col-" id="cijena_i_o">
+			<h3>CIJENA</h3>
+			<p>120 kn</p>
+			<h3>OCIJENA</h3>
+			<p>4.6</p>
+		</div>
+	</div>
+</div>
+
+<div class="container" id="izlet"> 
+	<div class="row" id="izlet_row">
+		<div class="col-md-">
+			<a href = "">
+				<image src="zagreb.jpg" id="slika_izleta">
+				</image>
+			</a>
+		</div>
+		<div class="col-lg-" id="text_izleta">
+			<a id = "link_na_str" href = "">
+				<h1>ZAGREB</h1 id="destinacija_izleta">
+			</a>
+			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
+		</div>
+		<div class="col-" id="cijena_i_o">
+			<h3>CIJENAA</h3>
+			<p>120 kn</p>
+			<h3>OCIJENA</h3>
+			<p>4.6</p>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

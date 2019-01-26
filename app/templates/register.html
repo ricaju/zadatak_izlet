@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/body.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+            <form class="form-signin" action="" method="post" novalidate>
+              {{ form.hidden_tag() }}
+              <div class="form-label-group">
+                {{ form.username(class="form-control", id="inputUserame", placeholder="Username", type="text") }}
+                {{ form.username.label }}
+              </div>
+
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <label for="inputEmail">Email address</label>
+              </div>
+              
+              <hr>
+
+              <div class="form-label-group">
+                {{ form.password(class="form-control", placeholder="Password", id="inputPassword", type="password") }}
+                {{ form.password.label}}
+              </div>
+              
+              <div class="form-label-group">
+                 {{ form.password(class="form-control", placeholder="Password", id="inputConfirmPassword", type="password") }}
+                {{ form.password.label}}
+              </div>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" href="izleti.html">Register</button>
+              <a class="d-block text-center mt-2 small" href="login.html">Sign In</a>
+              <hr class="my-4">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
