@@ -139,7 +139,5 @@ background-size: cover;
 
 #rememberMe{
   font-size: 15px;
-  position: relative;
-  top: -60px;
-  right: 1px;
+  position: absolute;
 }
