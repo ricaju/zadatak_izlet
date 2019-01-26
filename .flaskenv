@@ -1,0 +1,2 @@
+FLASK_APP=izleti.py
+FLASK_ENV=development
