@@ -1,0 +1,95 @@
+body{
+	background: url("back.jpg")no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+}
+
+header li {
+	overflow: hidden;	
+}
+header li a {
+	color: black;
+	text-decoration: none;
+	
+}
+
+
+#add_btn:hover {
+	color:#7FFFD4;
+}
+
+#logout_btn:hover {
+	color:#7FFFD4;
+}
+
+#add_btn {
+	position: absolute;
+	top: 15px;
+	left: 20px;
+	letter-spacing: 3px;
+	border: 3px solid #009999;
+}
+
+#logout_btn {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+h5{
+  font-size: 60px;
+  font-family: 'Amatic SC', cursive;
+}
+
+ #logout_btn {
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	border-radius: 40%;
+	border: none;
+	background-color: #009999;
+	font-size: 40px;
+
+}
+#add_btn {
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	border-radius: 40%;
+	border: none;
+	background-color: #009999;
+	font-size: 40px;
+
+}
+#About {
+transform-origin: top left;
+  width: 100%;
+  height: 150px;
+  padding: 5px 5px 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+
+}
+.btn {
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	border-radius: 60%;
+	border: none;
+	background-color: #009999;
+	font-size: 40px;
+	color: black;
+	width: 100%;
+}
+
+.btn:hover {
+	color:#7FFFD4;
+}
