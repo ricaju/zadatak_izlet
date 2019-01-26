@@ -11,14 +11,14 @@
 <body>
 	<header>
 		<ul>
-			<li><a class="newtrip" href="novi_izlet.html"><button class="btn1" id = "add_btn">+ Add new trip</button></a></li>
+			<li><a class="newtrip" href="novi_izlet.html"><button onclick="window.location.href='{{ url_for('novi_izlet') }}"class="btn1" id = "add_btn">+ Add new trip</button></a></li>
 			<li><a class="logout" href="register.html"><button class="btn2" id = "logout_btn">Log out</button></a></li>
 		</ul>
 
 		<div class="box">
   		<div class="container-1">
-     			<span class="icon" ><i class="fa fa-search"></i></span>
-      			<input type="search" id="search" onchange="AdvanceSearch()"  placeholder="Search..." />
+     			<span class="icon"><i class="fa fa-search"></i></span>
+      			<input type="search" id="search" onchange="AdvanceSearch()"  placeholder="Search..." autocomplete="off"/>
       			<button id ="advanced_button" name="open_advanced">Advanced search</button>
       		<div id="advanced">
       		<div>
