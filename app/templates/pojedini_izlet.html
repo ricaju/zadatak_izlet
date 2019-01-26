@@ -31,8 +31,8 @@ Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima po
 
 	</div>
 	
-<div class="container">
-  <div class="row">
+<div class="container" id = "info">
+  <div class="row" >
     <div class="col-sm">
      <h3>PRICE</h3>
 	  <p>120 €</p> 
@@ -48,7 +48,7 @@ Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima po
   </div>
 </div>
 
-<div id="googleMap" style="width:560px;height:360px;"></div>
+<div id="googleMap" style="width:560px;height:360px;top:40px;left: 90px;"></div>
 
 
 
@@ -56,6 +56,7 @@ Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima po
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
+<button class="btn3" id = "join_btn">Join the trip</button>
 
 <script>
 function myMap() {
@@ -68,5 +69,6 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr3Xo2yuO_ROrGxQ3YQ7FlzHgQsrIJT9I&callback=myMap"></script>
+
 </body>
 </html>
