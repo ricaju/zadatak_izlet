@@ -15,7 +15,7 @@ class User(UserMixin,db.Model):
         self.password_hash = generate_password_hash(password)
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-        
+
     @login.user_loader
     def load_user(id):
         return User.query.get(int(id))
@@ -26,16 +26,15 @@ class Trip(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     location = db.Column(db.String(120),index=True)
     about = db.Column(db.String(1000),index=True)
-    date = db.Column(db.DateTime,index=True)
+    #date = db.Column(db.DateTime,index=True)
     min_people = db.Column(db.String(120),index=True)
     max_people = db.Column(db.String(120),index=True)
     cost = db.Column(db.Integer,index=True)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-    creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-    trip_rating = db.Column(db.Integer)
+    #creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    #trip_rating = db.Column(db.Integer)
 
 class User_rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_rating = db.Column(db.Integer)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-
