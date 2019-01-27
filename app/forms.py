@@ -36,4 +36,4 @@ class NewTripForm(FlaskForm):
 	total_cost = StringField('Total_cost', validators=[DataRequired()])
 	cost_per_user = StringField('Cost_per_user', validators=[DataRequired()])
 	about = StringField('About the trip', validators=[DataRequired()])
-	submit = submit = SubmitField('New Trip')
+	submit = SubmitField('New Trip')
