@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
 		<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -11,14 +11,14 @@
 <body>
 	<header>
 		<ul>
-			<li><a class="newtrip" href="novi_izlet.html"><button class="btn1" id = "add_btn">+ Add new trip</button></a></li>
-			<li><a class="logout" href="register.html"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+			<li><a class="newtrip" href="{{ url_for('newtrip') }}"><button class="btn1" id = "add_btn">+ Add new trip</button></a></li>
+			<li><a class="logout" href="{{ url_for('register') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
 		</ul>
 
 		<div class="box">
   		<div class="container-1">
-     			<span class="icon" ><i class="fa fa-search"></i></span>
-      			<input type="search" id="search" onchange="AdvanceSearch()"  placeholder="Search..." />
+     			<span class="icon"><i class="fa fa-search"></i></span>
+      			<input type="search" id="search" onchange="AdvanceSearch()"  placeholder="Search..." autocomplete="off"/>
       			<button id ="advanced_button" name="open_advanced">Advanced search</button>
       		<div id="advanced">
       		<div>
@@ -50,13 +50,13 @@
 <div class="container" id="izlet"> 
 	<div class="row" id="izlet_row">
 		<div class="col-md-">
-			<a href = "pojedini_izlet.html">
+			<a href = "{{ url_for('trip') }}">
 				<image src="zagreb.jpg" id="slika_izleta" >
 				</image>
 			</a>
 		</div>
 		<div class="col-lg-" id="text_izleta">
-			<a id = "link_na_str" href = "pojedini_izlet.html">
+			<a id = "link_na_str" href = "{{ url_for('trip') }}">
 				<h1>ZAGREB</h1 id="destinacija_izleta">
 			</a>
 			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
@@ -65,52 +65,6 @@
 			<h3>PRICE</h3>
 			<p>100 kn</p>
 			<h3>RATING</h3>
-			<p>4.6</p>
-		</div>
-	</div>
-</div>
-
-<div class="container" id="izlet"> 
-	<div class="row" id="izlet_row">
-		<div class="col-md-">
-			<a href = "">
-				<image src="zagreb.jpg" id="slika_izleta">
-				</image>
-			</a>
-		</div>
-		<div class="col-lg-" id="text_izleta">
-			<a id = "link_na_str" href = "">
-				<h1>ZAGREB</h1 id="destinacija_izleta">
-			</a>
-			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
-		</div>
-		<div class="col-" id="cijena_i_o">
-			<h3>CIJENA</h3>
-			<p>120 kn</p>
-			<h3>OCIJENA</h3>
-			<p>4.6</p>
-		</div>
-	</div>
-</div>
-
-<div class="container" id="izlet"> 
-	<div class="row" id="izlet_row">
-		<div class="col-md-">
-			<a href = "">
-				<image src="zagreb.jpg" id="slika_izleta">
-				</image>
-			</a>
-		</div>
-		<div class="col-lg-" id="text_izleta">
-			<a id = "link_na_str" href = "">
-				<h1>ZAGREB</h1 id="destinacija_izleta">
-			</a>
-			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
-		</div>
-		<div class="col-" id="cijena_i_o">
-			<h3>CIJENAA</h3>
-			<p>120 kn</p>
-			<h3>OCIJENA</h3>
 			<p>4.6</p>
 		</div>
 	</div>
