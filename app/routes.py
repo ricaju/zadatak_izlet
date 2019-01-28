@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm,NewPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from werkzeug.urls import url_parse
@@ -59,3 +59,8 @@ def newtrip():
 	if form.validate_on_submit():
 		return redirect(url_for('newTrip.html'))
 	return render_template('newTrip.html', title='New Trip', form=form)
+
+@app.route('/newPassword')
+def newpassword():
+    form = NewPasswordForm()
+    return render_template('newPassword.html', title= 'New password', form=form)
