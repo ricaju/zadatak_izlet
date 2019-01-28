@@ -28,6 +28,12 @@ class LoginForm(FlaskForm):
 	submit = SubmitField('Login')
 	remember_me = BooleanField('Remember Me')
 
+class NewPasswordForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(),Email()])
+    password_new = PasswordField('Password', validators=[DataRequired()])
+    password_check = PasswordField('Password', validators = [DataRequired(), EqualTo('password')])
+    submit = SubmitField('Login')
+
 class NewTripForm(FlaskForm):
     location = StringField('Location', validators=[DataRequired()])
     date = StringField('Date', validators=[DataRequired()])
