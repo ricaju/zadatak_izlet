@@ -55,7 +55,16 @@ def trip():
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
 def newtrip():
-	form = NewTripForm()
-	if form.validate_on_submit():
-		return redirect(url_for('newTrip.html'))
-	return render_template('newTrip.html', title='New Trip', form=form)
+    form = NewTripForm()
+    if form.validate_on_submit():
+        if request.method == 'POST':
+            l = Trip(location = 'vz')
+            db.session.add(l)
+            db.session.commit()
+
+            newtrip = Trip(request.form['location'], request.form['transport'], request.form['min_people'], request.form['max_people'], request.form['about'], request.form['data'], request.form['total_cost'])
+            db.session.add(newtrip)
+            db.session.commit()
+            return redirect(url_for('newTrip.html'))
+    return render_template('newTrip.html', title='New Trip', form=form)
+
