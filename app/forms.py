@@ -36,7 +36,7 @@ class NewPasswordForm(FlaskForm):
 
 class NewTripForm(FlaskForm):
     location = StringField('Location', validators=[DataRequired()])
-    date = StringField('Date', validators=[DataRequired()])
+    #date = StringField('Date', validators=[DataRequired()])
     transport = StringField('Transportation', validators=[DataRequired()])
     min_people = StringField('Minimum people', validators=[DataRequired()])
     max_people = StringField('Maximum people', validators=[DataRequired()])
