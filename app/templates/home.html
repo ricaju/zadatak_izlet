@@ -47,29 +47,30 @@
 
 <div class="background"></div>
 
+{% for trip in trips %}
 <div class="container" id="izlet"> 
 	<div class="row" id="izlet_row">
 		<div class="col-md-">
 			<a href = "{{ url_for('trip') }}">
-				<image src="zagreb.jpg" id="slika_izleta" >
+				<image src="zagreb.jpg" id="slika_izleta">
 				</image>
 			</a>
 		</div>
 		<div class="col-lg-" id="text_izleta">
 			<a id = "link_na_str" href = "{{ url_for('trip') }}">
-				<h1>ZAGREB</h1 id="destinacija_izleta">
+				<h1>[{{location}}]</h1 id="destinacija_izleta">
 			</a>
-			<p>o izletu jgkaskashjk ashgjsdhsfgaehgajk uhdhhvdslja kefhaeughkj asdjfsdgahahas</p id="o_izletu">
+			<p>[{{about}}]</p id="o_izletu">
 		</div>
 		<div class="col-" id="cijena_i_o">
 			<h3>PRICE</h3>
-			<p>100 kn</p>
+			<p>[{{cost}}]</p>
 			<h3>RATING</h3>
-			<p>4.6</p>
+			<p>[{{rating}}]</p>
 		</div>
 	</div>
 </div>
-
+{% endfor %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

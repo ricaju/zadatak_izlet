@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import RegistrationForm, LoginForm, NewTripForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Trip
 from werkzeug.urls import url_parse
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -45,7 +45,14 @@ def logout():
 @app.route('/home')
 @login_required
 def home():
-	return render_template('home.html', title='Home')
+    trip = Trip.query.first()
+    if trip is not None:
+        for items in Trip.query('id', 'location', 'date', 'about', 'cost', 'rating'):
+            trip = TripView(location = 'location', date='date', about='about', cost='cost', rating='rating')
+            trips.append(trip)
+        trips=[]
+        return render_template('home.html', title='Home', form=trips)
+    return render_template('home.html', title='Home')
 
 @app.route('/trip')
 @login_required
@@ -55,7 +62,7 @@ def trip():
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
 def newtrip():
-	form = NewTripForm()
-	if form.validate_on_submit():
-		return redirect(url_for('newTrip.html'))
-	return render_template('newTrip.html', title='New Trip', form=form)
+    form = NewTripForm()
+    if form.validate_on_submit():
+        return render_template('newTrip.html', title='New Trip', form=form)
+    return render_template('newTrip.html', title='New Trip', form=form)
