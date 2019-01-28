@@ -59,3 +59,9 @@ def newtrip():
 	if form.validate_on_submit():
 		return redirect(url_for('newTrip.html'))
 	return render_template('newTrip.html', title='New Trip', form=form)
+
+@app.route('/newPassword')
+def newpassword():
+    form = NewPasswordForm()
+
+    return render_template('newPassword.html', title= 'New password', form=form)
