@@ -72,7 +72,7 @@ def newtrip():
             about= form.about.data, 
             date = form.date.data, 
             total_cost = int(form.total_cost.data),
-            creator_id = 0)
+            creator_id = current_user.id)
 		db.session.add(newtrip)
 		db.session.commit()
 		return redirect(url_for('home'))
