@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField
 from wtforms.validators import DataRequired, EqualTo, Email
 from app.models import User
 
@@ -31,6 +31,7 @@ class LoginForm(FlaskForm):
 class NewTripForm(FlaskForm):
 	location = StringField('Location', validators=[DataRequired()])
 	transport = StringField('Transportation', validators=[DataRequired()])
+	date = DateField('Date', validators=[DataRequired()])
 	min_people = StringField('Minimum people', validators=[DataRequired()])
 	max_people = StringField('Maximum people', validators=[DataRequired()])
 	total_cost = StringField('Total_cost', validators=[DataRequired()])
