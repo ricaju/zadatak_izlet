@@ -1,8 +1,8 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm, TripView
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Trip
 from werkzeug.urls import url_parse
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -45,6 +45,10 @@ def logout():
 @app.route('/home')
 @login_required
 def home():
+	if Trip.query.first() is not None:
+		form = TripView()
+		jfk = Trip.query('location')
+		return render_template('home.html', title='Home', form = form)
 	return render_template('home.html', title='Home')
 
 @app.route('/trip')
@@ -55,16 +59,17 @@ def trip():
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
 def newtrip():
-    form = NewTripForm()
-    if form.validate_on_submit():
-        if request.method == 'POST':
-            l = Trip(location = 'vz')
-            db.session.add(l)
-            db.session.commit()
-
-            newtrip = Trip(request.form['location'], request.form['transport'], request.form['min_people'], request.form['max_people'], request.form['about'], request.form['data'], request.form['total_cost'])
-            db.session.add(newtrip)
-            db.session.commit()
-            return redirect(url_for('newTrip.html'))
-    return render_template('newTrip.html', title='New Trip', form=form)
-
+	form = NewTripForm()
+	if form.validate_on_submit():
+		newtrip = Trip(location = form.location.data, 
+            transport= form.transport.data, 
+            min_people= int(form.min_people.data), 
+            max_people= int(form.max_people.data), 
+            about= form.about.data, 
+            date = form.date.data, 
+            total_cost = int(form.total_cost.data),
+            creator_id = 0)
+		db.session.add(newtrip)
+		db.session.commit()
+		return redirect(url_for('home'))
+	return render_template('newTrip.html', title='New Trip', form=form)

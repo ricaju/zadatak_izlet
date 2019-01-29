@@ -27,8 +27,8 @@ class Trip(db.Model):
     transport = db.Column(db.String(120), index=True)
     about = db.Column(db.String(1000),index=True)
     date = db.Column(db.DateTime,index=True)
-    min_people = db.Column(db.String(120),index=True)
-    max_people = db.Column(db.String(120),index=True)
+    min_people = db.Column(db.Integer,index=True)
+    max_people = db.Column(db.Integer,index=True)
     total_cost = db.Column(db.Integer,index=True)
     creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
 
