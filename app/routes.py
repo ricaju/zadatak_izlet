@@ -47,7 +47,11 @@ def logout():
 def home():
 	trip = Trip.query.first()
 	if trip is not None:
-		data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.cost)}
+		all_trips = Trip.query.all()
+		data = []
+		for trips in all_trips:
+			trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost}
+			data.append(trips_data)
 		return render_template('home.html', title='Home', data= data)
 	return render_template('home.html', title='Home')
 
