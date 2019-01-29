@@ -41,7 +41,7 @@
               </div>
 
               <div class="form-label-group">
-                {{ form.date(type="text", id="Date", class="form-control", placeholder="Date")}}
+                {{ form.date(type="date", id="Date", class="form-control", placeholder="Date")}}
                 <label for="Location"></label>
                 {% for error in form.date.errors %}
                 <span style="color: red;">[{{error}}]</span>
