@@ -2,8 +2,9 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import RegistrationForm, LoginForm, NewTripForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Trip
 from werkzeug.urls import url_parse
+from datetime import datetime
 
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
@@ -55,7 +56,17 @@ def trip():
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
 def newtrip():
-	form = NewTripForm()
-	if form.validate_on_submit():
-		return redirect(url_for('newTrip.html'))
-	return render_template('newTrip.html', title='New Trip', form=form)
+    form = NewTripForm()
+    if form.validate_on_submit():
+        newtrip = Trip(location = form.location.data, 
+            transport= form.transport.data, 
+            min_people= int(form.min_people.data), 
+            max_people= int(form.max_people.data), 
+            about= form.about.data, 
+            #date = datetime(int(form.date.data)), 
+            total_cost = int(form.total_cost.data))
+        db.session.add(newtrip)
+        db.session.commit()
+        return redirect(url_for('newTrip.html', title='New Trip', form=form))
+    return render_template('newTrip.html', title='New Trip', form=form)
+

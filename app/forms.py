@@ -28,13 +28,25 @@ class LoginForm(FlaskForm):
 	submit = SubmitField('Login')
 	remember_me = BooleanField('Remember Me')
 
+class NewPasswordForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(),Email()])
+    password_new = PasswordField('Password', validators=[DataRequired()])
+    password_check = PasswordField('Password', validators = [DataRequired(), EqualTo('password')])
+    submit = SubmitField('Login')
+
 class NewTripForm(FlaskForm):
-	location = StringField('Location', validators=[DataRequired()])
-	transport = StringField('Transportation', validators=[DataRequired()])
-	date = DateField('Date', validators=[DataRequired()])
-	min_people = StringField('Minimum people', validators=[DataRequired()])
-	max_people = StringField('Maximum people', validators=[DataRequired()])
-	total_cost = StringField('Total_cost', validators=[DataRequired()])
-	cost_per_user = StringField('Cost_per_user', validators=[DataRequired()])
-	about = StringField('About the trip', validators=[DataRequired()])
-	submit = SubmitField('New Trip')
+    location = StringField('Location', validators=[DataRequired()])
+    date = DateField('Date', validators=[DataRequired()])
+    transport = StringField('Transportation', validators=[DataRequired()])
+    min_people = StringField('Minimum people', validators=[DataRequired()])
+    max_people = StringField('Maximum people', validators=[DataRequired()])
+    total_cost = StringField('Total_cost', validators=[DataRequired()])
+    about = StringField('About the trip', validators=[DataRequired()])
+    submit = SubmitField('New Trip')
+
+class TripView:
+    location = ""
+    date = ""
+    about = ""
+    cost = ""
+    rating = ""
