@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm, TripView
+from app.forms import RegistrationForm, LoginForm, NewTripForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Trip
 from werkzeug.urls import url_parse
@@ -45,10 +45,10 @@ def logout():
 @app.route('/home')
 @login_required
 def home():
-	if Trip.query.first() is not None:
-		form = TripView()
-		jfk = Trip.query('location')
-		return render_template('home.html', title='Home', form = form)
+	trip = Trip.query.first()
+	if trip is not None:
+		data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.cost)}
+		return render_template('home.html', title='Home', data= data)
 	return render_template('home.html', title='Home')
 
 @app.route('/trip')

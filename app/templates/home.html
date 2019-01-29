@@ -5,7 +5,6 @@
 		<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		<script type="text/javascript" src="izleti.js"></script>
 </head>
 
 <body>
@@ -47,7 +46,6 @@
 
 <div class="background"></div>
 
-{% for trip in trips %}
 <div class="container" id="izlet"> 
 	<div class="row" id="izlet_row">
 		<div class="col-md-">
@@ -58,19 +56,18 @@
 		</div>
 		<div class="col-lg-" id="text_izleta">
 			<a id = "link_na_str" href = "{{ url_for('trip') }}">
-				<h1>[{{location}}]</h1 id="destinacija_izleta">
+				<h1>{{data.location}}</h1 id="destinacija_izleta">
 			</a>
-			<p>[{{about}}]</p id="o_izletu">
+			<p>{{data.about}}</p id="o_izletu">
 		</div>
 		<div class="col-" id="cijena_i_o">
 			<h3>PRICE</h3>
-			<p>[{{cost}}]</p>
+			<p>{{data.cost}}</p>
 			<h3>RATING</h3>
-			<p>[{{rating}}]</p>
+			<p>{{data.rating}}</p>
 		</div>
 	</div>
 </div>
-{% endfor %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

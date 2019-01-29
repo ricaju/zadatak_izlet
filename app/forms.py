@@ -43,10 +43,3 @@ class NewTripForm(FlaskForm):
     total_cost = StringField('Total_cost', validators=[DataRequired()])
     about = StringField('About the trip', validators=[DataRequired()])
     submit = SubmitField('New Trip')
-
-class TripView:
-    location = ""
-    date = ""
-    about = ""
-    cost = ""
-    rating = ""

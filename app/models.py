@@ -20,17 +20,19 @@ class User(UserMixin,db.Model):
     def load_user(id):
         return User.query.get(int(id))
 
+    
 
 class Trip(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     location = db.Column(db.String(120),index=True)
-    transport = db.Column(db.String(120), index=True)
     about = db.Column(db.String(1000),index=True)
     date = db.Column(db.DateTime,index=True)
-    min_people = db.Column(db.Integer,index=True)
-    max_people = db.Column(db.Integer,index=True)
-    total_cost = db.Column(db.Integer,index=True)
+    min_people = db.Column(db.String(120),index=True)
+    max_people = db.Column(db.String(120),index=True)
+    cost = db.Column(db.Integer,index=True)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    trip_rating = db.Column(db.Integer, default = '0')
 
 class User_rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
