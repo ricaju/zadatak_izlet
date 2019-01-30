@@ -19,16 +19,25 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="{{ url_for('edit') }}">Edit profil</a>
-    <a class="dropdown-item" href="{{ url_for('home', id=my_trips) }}">My trips</a>
+    <a class="dropdown-item" href="{{ url_for('my_trips') }}">My trips</a>
     <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
   </div>
-</div>š
+</div>
 
 		<div class="box">
   		<div class="container-1">
      			<span class="icon"><i class="fa fa-search"></i></span>
-      			<input type="search" id="search" onchange="AdvanceSearch()"  placeholder="Search..." autocomplete="off"/>
+      			<input type="search" id="search" placeholder="Search..." autocomplete="off"/>
       			<button id ="advanced_button" name="open_advanced">Advanced search</button>
+      			<script>
+					var input = document.getElementById("search");
+					input.addEventListener("keyup", function(event) {
+  						event.preventDefault();
+  						if (event.keyCode === 13) {
+    						{url_for('home')}
+  						}
+					});
+				</script>
       		<div id="advanced">
       		<div>
       			<input type="checkbox" id="by_destination" name="search_by_destination">

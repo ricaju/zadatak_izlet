@@ -43,7 +43,6 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/home')
-@app.route('/home/<my_trips>')
 @login_required
 def home():
     trip = Trip.query.first()
@@ -55,7 +54,18 @@ def home():
             data.append(trips_data)
         return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
-def home(my_trips):
+
+@app.route('/home/my_trips')
+@login_required
+def my_trips():
+    trip = Trip.query.first()
+    if trip is not None:
+        all_trips = Trip.query.filter_by(creator_id=current_user.id)
+        data = []
+        for trips in all_trips:
+            trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost, 'id' : trips.id}
+            data.append(trips_data)
+        return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
 
 
