@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/komplicirano.css') }}">
+</head>
+<body>
+
+<header>
+  <ul>
+    <li><a  class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id="add_btn">Home</button></a></li>
+    <li><a  class="logout" href="{{ url_for('register') }}"><button class="btn2" id="logout_btn">Log out</button></a></li>
+  </ul>
+</header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">   
+        </div>
+          <div class="card-body">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <h5 class="card-title text-center">Create your new trip</h5>
+            <form class="form-signin" action="{{ url_for('newtrip') }}" method="post" novalidate>
+              {{ form.hidden_tag() }}
+              <div class="form-label-group">
+                {{ form.location(type="text", id="Location", class="form-control", placeholder="Location")}}
+                <label for="Location"></label>
+                {% for error in form.location.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.date(type="date", id="Date", class="form-control", placeholder="Date")}}
+                <label for="Location"></label>
+                {% for error in form.date.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.transport(type="text", id="Transport", class="form-control", placeholder="Transport")}}
+                <label for="Transport"></label>
+                {% for error in form.transport.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.min_people(type="text", id="Number_of_people", class="form-control", placeholder="Min number of people")}}
+                <label for="Number_of_people"></label>
+                {% for error in form.min_people.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.max_people(type="text", id="Max_people", class="form-control", placeholder="Max number of people")}}
+                <label for="Max_people"></label>
+                {% for error in form.max_people.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.total_cost(type="text", id="Total cost", class="form-control", placeholder="Total cost")}}
+                <label for="Total_cost"></label>
+                {% for error in form.total_cost.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.about(type="text-area", id="About", class="form-control", placeholder="About the trip...")}}
+                <label for="About"></label>
+                {% for error in form.about.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              {{ form.submit(class="btn btn-sm text-uppercase", type="submit", href="{{ url_for('home') }}")}}
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

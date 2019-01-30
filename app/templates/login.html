@@ -13,7 +13,6 @@
       <div class="col-lg-10 col-xl-9 mx-auto">
         <div class="card card-signin flex-row my-5">
           <div class="card-img-left d-none d-md-flex">
-             <!-- Background image for card set in CSS! -->
           </div>
           <div class="card-body">
               {% with messages = get_flashed_messages() %}
@@ -45,7 +44,9 @@
               </div>
 
               {{ form.submit(class="btn btn-primary btn-sm", type="submit", id="logButton", type="submit")}}
-              <a id="password"  href="newPassword.html">Forgot password?</a>
+              <a id="password" href="newPassword.html">Forgot password?</a>
+              <br>
+              <a id="password" href="{{url_for('register')}}">Not a registered user?</a>
               <div>
                  {{ form.remember_me(class="checkbox", id="rememberMe") }}
                  <label id="rememberMe" for="rememberMe">Remember me</label>

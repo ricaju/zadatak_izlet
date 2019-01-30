@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="pojedini_izlet.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/pojedini_izlet.css') }}">
 		<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	</head>
@@ -9,8 +9,8 @@
 <body>
 	<header>
 		<ul>
-			<li><a class="newtrip" href="izleti.html"><button class="btn1" id = "add_btn">Back</button></a></li>
-			<li><a class="logout" href="register.html"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+			<li><a class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id = "add_btn">Back</button></a></li>
+			<li><a class="logout" href="{{ url_for('register') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
 			<h1 align="center" >Zagreb</h1>
 		</ul>
 	</header>
@@ -50,13 +50,15 @@ Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima po
 
 <div id="googleMap" style="width:560px;height:360px;top:40px;left: 90px;"></div>
 
+<button class="btn3" id = "join_btn">Join the trip</button>
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<button class="btn3" id = "join_btn">Join the trip</button>
+
 
 <script>
 function myMap() {

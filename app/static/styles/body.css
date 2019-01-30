@@ -26,7 +26,6 @@ background-size: cover;
 
 .card-signin .card-img-left {
   width: 45%;
-  /* Link to your background image using in the property below! */
   background: scroll center url('login.jpg');
   background-size: cover;
 }
@@ -70,7 +69,6 @@ background-size: cover;
   display: block;
   width: 100%;
   margin-bottom: 0;
-  /* Override default <label> margin */
   line-height: 1.5;
   color: #495057;
   border: 1px solid transparent;
@@ -133,11 +131,13 @@ background-size: cover;
 #password{
   font-size: 12px;
   position: relative;
-  top: 35px;
-  right: 85px;
+  top: 3px;
+  right: 140px;
 }
 
 #rememberMe{
   font-size: 15px;
-  position: absolute;
+  position: relative;
+  top: -100px;
+  right: 1px;
 }
