@@ -31,7 +31,7 @@ class LoginForm(FlaskForm):
 class NewPasswordForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(),Email()])
     password_new = PasswordField('Password', validators=[DataRequired()])
-    password_check = PasswordField('Password', validators = [DataRequired(), EqualTo('password')])
+    password_check = PasswordField('Password', validators = [DataRequired(), EqualTo('password_new')])
     submit = SubmitField('Login')
 
 class NewTripForm(FlaskForm):

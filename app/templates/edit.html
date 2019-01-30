@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="edit.css">
+  </head>
+  <header>
+    <ul>
+      <li><a class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id = "add_btn">Back</button></a></li>
+      <li><a class="logout" href="{{ url_for('register') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+    </ul>
+  </header>
+<body>
+<div id="sc-edprofile">
+  <h1>Edit Profile </h1>
+  <div class="sc-container">
+    <input type="text" placeholder="Username" />
+    <input type="text" placeholder="Email Address" />
+    <input type="password" placeholder="Password" />
+    <input type="text" placeholder="First Name" />
+    <input type="text" placeholder="Last Name" />
+    <textarea placeholder="Bio" /></textarea>
+    <select>
+      <option value="">Male</option>
+      <option value="">Female</option>
+    </select>
+    <input type="submit" value="Submit" />
+  </div>
+</div>
+</body>
+</html>
