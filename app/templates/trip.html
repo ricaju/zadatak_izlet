@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<head>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/pojedini_izlet.css') }}">
 		<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
@@ -11,10 +12,10 @@
 		<ul>
 			<li><a class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id = "add_btn">Back</button></a></li>
 			<li><a class="logout" href="{{ url_for('register') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
-			<h1 align="center" >Zagreb</h1>
 		</ul>
 	</header>
 
+<h1 id="title">{{data.location}}</h1>
 <div class="background"></div>
 
 
@@ -22,33 +23,35 @@
 	
 	<div class="row">
 		<div class="col-lg-" id = "pojedini_about">
-			Zagreb je glavni grad Republike Hrvatske, i najveći grad u Hrvatskoj po broju stanovnika. Šire područje grada okuplja više od milijun stanovnika. Povijesno gledajući, grad Zagreb je izrastao iz dva naselja na susjednim brežuljcima, Gradeca i Kaptola, koji čine jezgru današnjeg grada, njegovo povijesno središte. Nalazi se na jugozapadnom rubu Panonske nizine na prosječnoj nadmorskoj visini od 122 m, podno južnih padina Medvednice, na lijevoj i desnoj obali rijeke Save. Položaj grada, koji je na mjestu spajanja alpske, dinarske, jadranske i Panonske regije, omogućio je da Zagreb postane most između srednjoeuropskog i jadranskog područja.
-
-Prema popisu stanovništva iz 2011. u Zagrebu živi 790.017 stanovnika.[2][3] Kao najveći i glavni grad, Zagreb je kulturno, znanstveno, gospodarsko i upravno središte Republike Hrvatske i Zagrebačke županije. Zahvaljujući ulozi najvećeg prometnog centra u Hrvatskoj, razvijenoj industriji s dugom tradicijom i znanstvenim i istraživačkim ustanovama, Zagreb je gospodarski najrazvijeniji grad u Hrvatskoj.
-
-Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima položaj županije.
+			{{data.about}}
 </div>
 
 	</div>
 	
 <div class="container" id = "info">
-  <div class="row" >
-    <div class="col-sm">
-     <h3>PRICE</h3>
-	  <p>120 €</p> 
-    </div>
-    <div class="col-sm">
-     <h3>TRANSPORT</h3>
-	<p>TRAIN</p>
-    </div>
-    <div class="col-sm">
-     <h3>RATING</h3>
-	<p>4.6</p>
-    </div>
-  </div>
+      
+    <h3>PRICE</h3>
+	<p>{{data.cost}}</p> 
+        
+    <h3>TRANSPORT</h3>
+	<p>{{data.transport}}</p>
+    
+    <h3>DATE</h3>
+    <p>{{data.date}}</p>
+
+    <h3>RATING</h3>
+	<p>{{data.rating}}</p>
+
+	<h3>JOINED USERS</h3>
+	<p>padajuci izbornik?</p>    
+     
+    
+    
 </div>
 
-<div id="googleMap" style="width:560px;height:360px;top:40px;left: 90px;"></div>
+<div class="picturePlace"></div>
+<button class="btn4" id="add_pic">Add a picture</button>
+<div id="googleMap" style="width: 415px; height: 350px; margin-left: 335px; position: relative;"></div>
 
 <button class="btn3" id = "join_btn">Join the trip</button>
 

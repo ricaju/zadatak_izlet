@@ -126,18 +126,27 @@ background-size: cover;
   margin-left: 150px;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: 20px;
 }
 
-#password{
-  font-size: 12px;
+
+#newuser{  
+  font-size: 13px;
   position: relative;
-  top: 3px;
-  right: 140px;
+  top: 50px;
+}
+
+#forgotpassword{
+  position: relative;
+  right: 230px;
+  top: 69px;
+  font-size: 13px;
 }
 
 #rememberMe{
   font-size: 15px;
   position: relative;
-  top: -100px;
-  right: 1px;
+  top: -80px;
+  
 }

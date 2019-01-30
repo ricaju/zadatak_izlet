@@ -44,9 +44,9 @@
               </div>
 
               {{ form.submit(class="btn btn-primary btn-sm", type="submit", id="logButton", type="submit")}}
-              <a id="password" href="{{url_for('newpassword')}}">Forgot password?</a>
+              <a id="forgotpassword" href="{{url_for('newpassword')}}">Forgot password?</a>
               <br>
-              <a id="password" href="{{url_for('register')}}">Not a registered user?</a>
+              <a id="newuser" href="{{url_for('register')}}">Not a registered user?</a>
               <div>
                  {{ form.remember_me(class="checkbox", id="rememberMe") }}
                  <label id="rememberMe" for="rememberMe">Remember me</label>
