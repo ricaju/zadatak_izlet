@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm, EditForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Trip
 from werkzeug.urls import url_parse
@@ -96,3 +96,9 @@ def newpassword():
         flash('You changed your password!')
         return redirect(url_for('login'))
     return render_template('newPassword.html', title='New Password', form = form)
+
+@app.route('/edit', methods= ['GET', 'POST'])
+@login_required
+def edit():
+    form = EditForm()
+    return render_template('edit.html', title='Edit Profile', form = form)
