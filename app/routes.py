@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Trip
 from werkzeug.urls import url_parse
@@ -47,7 +47,11 @@ def logout():
 def home():
 	trip = Trip.query.first()
 	if trip is not None:
-		data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.cost)}
+		all_trips = Trip.query.all()
+		data = []
+		for trips in all_trips:
+			trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost}
+			data.append(trips_data)
 		return render_template('home.html', title='Home', data= data)
 	return render_template('home.html', title='Home')
 
@@ -68,8 +72,24 @@ def newtrip():
             about= form.about.data, 
             date = form.date.data, 
             total_cost = int(form.total_cost.data),
-            creator_id = 0)
+            creator_id = current_user.id)
 		db.session.add(newtrip)
 		db.session.commit()
 		return redirect(url_for('home'))
 	return render_template('newTrip.html', title='New Trip', form=form)
+
+@app.route('/newpassword', methods=['GET', 'POST'])
+def newpassword():
+    form = NewPasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None:
+            flash('Invalid username')
+            return redirect(url_for('newpassword'))
+        user.set_password(form.password_new.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('You changed your password!')
+        return redirect(url_for('login'))
+
+    return render_template('newPassword.html', title='New Password', form = form)
