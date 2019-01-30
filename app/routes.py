@@ -116,7 +116,7 @@ def newpassword():
 def edit():
     form = EditForm()
     if form.validate_on_submit():
-        if form.oldpassword is not User.check_password():
+        if form.oldpassword is not current_user.check_password():
             flash('Incorrect old password')
             return redirect(url_for('edit'))
         else:
@@ -124,9 +124,10 @@ def edit():
             db.session.add(password)
             db.session.commit()
 
-        podaci = User(firstName = form.firstName.data,
-        lastName = form.lastName.data, bio = form.bio.data,
-        spol = form.spol.data)
+        user = current_user
+        podaci = User(user.firstName = form.firstName.data,
+        user.lastName = form.lastName.data, user.bio = form.bio.data,
+        user.spol = form.spol.data)
         db.session.add(podaci)
         db.session.commit()
         flash('Data has been updated!')
