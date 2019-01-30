@@ -11,7 +11,7 @@
 	<header>
 		<ul>
 			<li><a class="newtrip" href="{{ url_for('newtrip') }}"><button class="btn1" id = "add_btn">+ Add new trip</button></a></li>
-			<li><a class="logout" href="{{ url_for('logout') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
+			<li><a class="logout" href="{{ url_for('logout') }}"><button class="btn2" id = "logout_btn">Settings</button></a></li>
 		</ul>
 
 		<div class="box">
@@ -50,14 +50,14 @@
 <div class="container" id="izlet"> 
 	<div class="row" id="izlet_row">
 		<div class="col-md-">
-			<a href = "{{ url_for('trip') }}">
+			<a href = "{{ url_for('trip', id=trip.id) }}">
 				<image src="static/styles/zagreb.jpg" id="slika_izleta">
 				</image>
 			</a>
 		</div>
 		<div class="col-lg-" id="text_izleta">
-			<a id = "link_na_str" href = "{{ url_for('trip') }}">
-				<h1>{{trip.location}}</h1 id="destinacija_izleta">
+			<a id = "link_na_str" href = "{{ url_for('trip', id=trip.id) }}">
+				<h1 id="destinacija_izleta">{{trip.location}}</h1>
 			</a>
 			<p>{{trip.about}}</p id="o_izletu">
 		</div>

@@ -45,20 +45,24 @@ def logout():
 @app.route('/home')
 @login_required
 def home():
-	trip = Trip.query.first()
-	if trip is not None:
-		all_trips = Trip.query.all()
-		data = []
-		for trips in all_trips:
-			trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost}
-			data.append(trips_data)
-		return render_template('home.html', title='Home', data= data)
-	return render_template('home.html', title='Home')
+    trip = Trip.query.first()
+    if trip is not None:
+        all_trips = Trip.query.all()
+        data = []
+        for trips in all_trips:
+            trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost, 'id' : trips.id}
+            data.append(trips_data)
+        return render_template('home.html', title='Home', data= data)
+    return render_template('home.html', title='Home')
 
 @app.route('/trip')
+@app.route('/trip/<id>')
 @login_required
-def trip():
-	return render_template('trip.html', title='Trip')
+def trip(id):
+    trip = Trip.query.filter_by(id = id).first()
+    trip_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : trip.total_cost,
+    'date' : trip.date, 'transport' : trip.transport}
+    return render_template('trip.html', title='Trip', data = trip_data)
 
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
@@ -91,5 +95,4 @@ def newpassword():
         db.session.commit()
         flash('You changed your password!')
         return redirect(url_for('login'))
-
     return render_template('newPassword.html', title='New Password', form = form)
