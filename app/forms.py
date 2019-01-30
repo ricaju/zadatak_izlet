@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, SelectField
 from wtforms.validators import DataRequired, EqualTo, Email
 from app.models import User, Trip
 
@@ -45,8 +45,10 @@ class NewTripForm(FlaskForm):
     submit = SubmitField('New Trip')
 
 class EditForm(FlaskForm):
-    username = StringField('username')
-    email = StringField ('Email', validators=[Email()])
+    oldpassword = StringField('Old password')
+    newpassword = StringField('New passwrod')
     firstName = StringField('First name')
     lastName = StringField('Last name')
     bio = StringField('bio')
+    spol = SelectField('spol', choices=[('male', 'female')])
+    submit = SubmitField('Submit')

@@ -105,4 +105,20 @@ def newpassword():
 @login_required
 def edit():
     form = EditForm()
+    if form.validate_on_submit():
+        if form.oldpassword is not User.check_password():
+            flash('Incorrect old password')
+            return redirect(url_for('edit'))
+        else:
+            password.set_password(form.newpassword.data)
+            db.session.add(password)
+            db.session.commit()
+
+        podaci = User(firstName = form.firstName.data,
+        lastName = form.lastName.data, bio = form.bio.data,
+        spol = form.spol.data)
+        db.session.add(podaci)
+        db.session.commit()
+        flash('Data has been updated!')
+        return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)
