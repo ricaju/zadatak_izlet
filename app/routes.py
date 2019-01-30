@@ -116,20 +116,10 @@ def newpassword():
 def edit():
     form = EditForm()
     if form.validate_on_submit():
-        if form.oldpassword is not current_user.check_password():
-            flash('Incorrect old password')
-            return redirect(url_for('edit'))
-        else:
-            password.set_password(form.newpassword.data)
-            db.session.add(password)
-            db.session.commit()
-
-        user = current_user
-        podaci = User(user.firstName = form.firstName.data,
-        user.lastName = form.lastName.data, user.bio = form.bio.data,
-        user.spol = form.spol.data)
-        db.session.add(podaci)
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        current_user.bio = form.bio.data
+        current_user.spol = form.spol.data
         db.session.commit()
-        flash('Data has been updated!')
         return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)

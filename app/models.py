@@ -13,6 +13,7 @@ class User(UserMixin,db.Model):
     first_name = db.Column(db.String(128))
     last_name = db.Column(db.String(128))
     bio = db.Column(db.String(128))
+    spol = db.Column(db.String(10))
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

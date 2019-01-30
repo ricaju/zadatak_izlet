@@ -45,10 +45,8 @@ class NewTripForm(FlaskForm):
     submit = SubmitField('New Trip')
 
 class EditForm(FlaskForm):
-    oldpassword = StringField('Old password')
-    newpassword = StringField('New passwrod')
-    firstName = StringField('First name')
-    lastName = StringField('Last name')
+    first_name = StringField('First name')
+    last_name = StringField('Last name')
     bio = StringField('bio')
-    spol = SelectField('spol', choices=[('male', 'female')])
+    spol = SelectField('spol', choices=[('Male', 'Male'), ('Female', 'Female')])
     submit = SubmitField('Submit')
