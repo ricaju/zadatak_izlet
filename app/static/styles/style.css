@@ -20,7 +20,7 @@ header li a {
 	text-decoration: none;
 }
 
-#add_btn, #logout_btn, #advanced_button{
+#add_btn, #dropdownMenuButton, #advanced_button{
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	border-radius: 40%;
@@ -57,7 +57,7 @@ header li a {
 	color:#7FFFD4;
 }
 
-#logout_btn:hover {
+#dropdownMenuButton:hover {
 	color:#7FFFD4;
 }
 
@@ -80,7 +80,7 @@ header li a {
 	left: 20px;
 }
 
-#logout_btn {
+#dropdownMenuButton {
 	position: absolute;
 	top: 15px;
 	right: 20px;
@@ -193,4 +193,5 @@ header li a {
   color: #4f5b66;
   padding-top: 12px;
 }
+
 

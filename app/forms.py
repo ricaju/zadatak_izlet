@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField
 from wtforms.validators import DataRequired, EqualTo, Email
-from app.models import User
+from app.models import User, Trip
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -43,3 +43,10 @@ class NewTripForm(FlaskForm):
     total_cost = StringField('Total_cost', validators=[DataRequired()])
     about = StringField('About the trip', validators=[DataRequired()])
     submit = SubmitField('New Trip')
+
+class EditForm(FlaskForm):
+    username = StringField('username')
+    email = StringField ('Email', validators=[Email()])
+    firstName = StringField('First name')
+    lastName = StringField('Last name')
+    bio = StringField('bio')

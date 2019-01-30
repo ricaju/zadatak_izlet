@@ -12,11 +12,10 @@
 		<ul>
 			<li><a class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id = "add_btn">Back</button></a></li>
 			<li><a class="logout" href="{{ url_for('register') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
-			
 		</ul>
 	</header>
 
-<h1 id="title">Zagreb</h1>
+<h1 id="title">{{data.location}}</h1>
 <div class="background"></div>
 
 
@@ -24,11 +23,7 @@
 	
 	<div class="row">
 		<div class="col-lg-" id = "pojedini_about">
-			Zagreb je glavni grad Republike Hrvatske, i najveći grad u Hrvatskoj po broju stanovnika. Šire područje grada okuplja više od milijun stanovnika. Povijesno gledajući, grad Zagreb je izrastao iz dva naselja na susjednim brežuljcima, Gradeca i Kaptola, koji čine jezgru današnjeg grada, njegovo povijesno središte. Nalazi se na jugozapadnom rubu Panonske nizine na prosječnoj nadmorskoj visini od 122 m, podno južnih padina Medvednice, na lijevoj i desnoj obali rijeke Save. Položaj grada, koji je na mjestu spajanja alpske, dinarske, jadranske i Panonske regije, omogućio je da Zagreb postane most između srednjoeuropskog i jadranskog područja.
-
-Prema popisu stanovništva iz 2011. u Zagrebu živi 790.017 stanovnika.[2][3] Kao najveći i glavni grad, Zagreb je kulturno, znanstveno, gospodarsko i upravno središte Republike Hrvatske i Zagrebačke županije. Zahvaljujući ulozi najvećeg prometnog centra u Hrvatskoj, razvijenoj industriji s dugom tradicijom i znanstvenim i istraživačkim ustanovama, Zagreb je gospodarski najrazvijeniji grad u Hrvatskoj.
-
-Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima položaj županije.
+			{{data.about}}
 </div>
 
 	</div>
@@ -36,16 +31,16 @@ Grad Zagreb je posebna teritorijalna, upravna i samoupravna jedinica koja ima po
 <div class="container" id = "info">
       
     <h3>PRICE</h3>
-	<p>120 €</p> 
+	<p>{{data.cost}}</p> 
         
     <h3>TRANSPORT</h3>
-	<p>TRAIN</p>
+	<p>{{data.transport}}</p>
     
     <h3>DATE</h3>
-    <p>23.05.2019.</p>
+    <p>{{data.date}}</p>
 
     <h3>RATING</h3>
-	<p>4.6</p>
+	<p>{{data.rating}}</p>
 
 	<h3>JOINED USERS</h3>
 	<p>padajuci izbornik?</p>    
