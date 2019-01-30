@@ -129,19 +129,19 @@ background-size: cover;
   position: relative;
   top: 20px;
 }
-}
 
-#password{  
-  font-size: 15px;
+
+#newuser{  
+  font-size: 13px;
   position: relative;
-  top: 10px;
+  top: 50px;
 }
 
-#newpassword{
+#forgotpassword{
   position: relative;
   right: 230px;
-  top: 40px;
-  font-size: 15px;
+  top: 69px;
+  font-size: 13px;
 }
 
 #rememberMe{
