@@ -20,8 +20,6 @@ class User(UserMixin,db.Model):
     def load_user(id):
         return User.query.get(int(id))
 
-    
-
 class Trip(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     location = db.Column(db.String(120),index=True)

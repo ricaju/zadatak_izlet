@@ -40,12 +40,14 @@
 }
 
 #sc-edprofile h1 {
-  background: #3399cc;
+  background: #009999;
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
   text-align: center;
-  color: #fff;
+  color: black;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
 }
 
 div#sc-edprofile .sc-container {
@@ -56,14 +58,16 @@ div#sc-edprofile .sc-container {
 div#sc-edprofile input[type="email"],
 div#sc-edprofile input[type="text"],
 div#sc-edprofile input[type="password"], div#sc-edprofile select, div#sc-edprofile textarea {
-  width: 92%;
+  width: 100%;
   background: #fff;
   margin-bottom: 4%;
   border: 1px solid #ccc;
   padding: 4%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Amatic SC', cursive;
   font-size: 95%;
   color: #555;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 div#sc-edprofile select {
@@ -76,19 +80,20 @@ div#sc-edprofile textarea {
 
 div#sc-edprofile input[type="submit"] {
   width: 100%;
-  background: #3399cc;
+  background: #009999;
   border: 0;
   padding: 4%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 100%;
-  color: #fff;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: background .3s;
-  -webkit-transition: background .3s;
+  /*transition: background .3s;
+  -webkit-transition: background .3s;*/
 }
 
 div#sc-edprofile input[type="submit"]:hover {
-  background: #2288bb;
+  color:#7FFFD4;
 }
 body{
   background: url("back.jpg")no-repeat center center fixed;
