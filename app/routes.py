@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Trip
 from werkzeug.urls import url_parse
@@ -77,3 +77,19 @@ def newtrip():
 		db.session.commit()
 		return redirect(url_for('home'))
 	return render_template('newTrip.html', title='New Trip', form=form)
+
+@app.route('/newpassword', methods=['GET', 'POST'])
+def newpassword():
+    form = NewPasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None:
+            flash('Invalid username')
+            return redirect(url_for('newpassword'))
+        user.set_password(form.password_new.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('You changed your password!')
+        return redirect(url_for('login'))
+
+    return render_template('newPassword.html', title='New Password', form = form)

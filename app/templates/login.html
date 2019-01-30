@@ -44,7 +44,7 @@
               </div>
 
               {{ form.submit(class="btn btn-primary btn-sm", type="submit", id="logButton", type="submit")}}
-              <a id="password" href="newPassword.html">Forgot password?</a>
+              <a id="password" href="{{url_for('newpassword')}}">Forgot password?</a>
               <br>
               <a id="password" href="{{url_for('register')}}">Not a registered user?</a>
               <div>
