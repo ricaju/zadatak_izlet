@@ -106,14 +106,17 @@ header li a {
 
 #title{
 	font-size: 100px;
-	padding-left: 100px;
-	padding-bottom: 50px;
-    font-weight: bold;
+    /* padding-left: 650px; */
+    padding-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    display: flex;
     font-family: 'Amatic SC', cursive;
-    color: #009999;
-    background: -webkit-linear-gradient(#009999, #7FFFD4, #009999);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: black;
+    /* background: -webkit-linear-gradient(#009999, #7FFFD4, #009999); */
+    /*-webkit-background-clip: text;*/
+    /* -webkit-text-fill-color: transparent; */
 }
 .picturePlace{
 	position: relative;
