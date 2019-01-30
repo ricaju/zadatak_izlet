@@ -43,3 +43,10 @@ class NewTripForm(FlaskForm):
     total_cost = StringField('Total_cost', validators=[DataRequired()])
     about = StringField('About the trip', validators=[DataRequired()])
     submit = SubmitField('New Trip')
+
+class EditForm(FlaskForm):
+    username = StringField('username')
+    email = StringField ('Email', validators=[Email()])
+    firstName = StringField('First name')
+    lastName = StringField('Last name')
+    bio = StringField('bio')
