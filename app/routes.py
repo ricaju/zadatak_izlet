@@ -43,6 +43,7 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/home')
+@app.route('/home/<my_trips>')
 @login_required
 def home():
     trip = Trip.query.first()
@@ -54,6 +55,9 @@ def home():
             data.append(trips_data)
         return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
+def home(my_trips):
+    return render_template('home.html', title='Home')
+
 
 @app.route('/trip')
 @app.route('/trip/<id>')
