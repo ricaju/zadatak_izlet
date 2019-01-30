@@ -18,11 +18,10 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="{{ url_for('edit') }}">Edit profil</a>
-    <a class="dropdown-item" href="{{ url_for('home') }}">My trips</a>
+    <a class="dropdown-item" href="{{ url_for('home', id=my_trips) }}">My trips</a>
     <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
   </div>
-</div>
-		
+</div>š
 
 		<div class="box">
   		<div class="container-1">
@@ -60,14 +59,14 @@
 <div class="container" id="izlet"> 
 	<div class="row" id="izlet_row">
 		<div class="col-md-">
-			<a href = "{{ url_for('trip') }}">
+			<a href = "{{ url_for('trip', id=trip.id) }}">
 				<image src="static/styles/zagreb.jpg" id="slika_izleta">
 				</image>
 			</a>
 		</div>
 		<div class="col-lg-" id="text_izleta">
-			<a id = "link_na_str" href = "{{ url_for('trip') }}">
-				<h1>{{trip.location}}</h1 id="destinacija_izleta">
+			<a id = "link_na_str" href = "{{ url_for('trip', id=trip.id) }}">
+				<h1 id="destinacija_izleta">{{trip.location}}</h1>
 			</a>
 			<p>{{trip.about}}</p id="o_izletu">
 		</div>
