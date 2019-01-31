@@ -43,7 +43,7 @@
                 {% endfor %}
               </div>
 
-              {{ form.submit(class="btn btn-primary btn-sm", type="submit", id="logButton", type="submit")}}
+              {{ form.submit(class="btn btn-primary btn-sm", type="submit", id="logButton")}}
               <a id="forgotpassword" href="{{url_for('newpassword')}}">Forgot password?</a>
               <br>
               <a id="newuser" href="{{url_for('register')}}">Not a registered user?</a>

@@ -1,9 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request
 import os
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm, EditForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm, EditForm, TripPageForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, Trip
+from app.models import User, Trip, Comments
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
@@ -71,24 +71,38 @@ def my_trips():
     return render_template('home.html', title='Home')
 
 
-@app.route('/trip')
-@app.route('/trip/<id>')
+@app.route('/trip/<id>', methods=['GET', 'POST'])
 @login_required
 def trip(id):
     trip = Trip.query.filter_by(id = id).first()
-    trip_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.total_cost) + ' kn',
-    'date' : trip.date.strftime('%d/%m/%Y'), 'transport' : trip.transport}
-    return render_template('trip.html', title='Trip', data = trip_data)
+    user = User.query.filter_by(id = trip.creator_id).first()
+    comments = Comments.query.filter_by(trip_id = trip.id)
+    c_data = []
+    if comments is not None:
+    	for comment in comments:
+    		user = User.query.filter_by(id = comment.user_id).first()
+    		comment_data = {'comment' : comment.coments, 'username' : user.username}
+    		c_data.append(comment_data)
+    trip_data = {'trip' : trip.id, 'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.total_cost) + ' kn',
+    'date' : trip.date.strftime('%d/%m/%Y'), 'transport' : trip.transport, 'creator' : user.username, 'comments' : c_data}
+    form = TripPageForm()
+    if form.validate_on_submit():
+        comment = Comments(coments = form.comment.data, user_id = current_user.id, trip_id = trip.id)
+        db.session.add(comment)
+        db.session.commit()
+        return render_template('trip.html', title='Trip', data = trip_data, form=form)
+    return render_template('trip.html', title='Trip', data = trip_data, form=form)
+
 
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
 def newtrip():
     form = NewTripForm()
     if form.validate_on_submit():
-        if form.picture:
-            import pdb; pdb.set_trace()
-            filename = secure_filename(form.picture.data.filename)
-            form.picture.data.save(os.path.join(app.config['UPLOAD_FOLDER']), filename)
+        #if form.picture:
+           # import pdb; pdb.set_trace()
+            #filename = secure_filename(form.picture.data.filename)
+           # form.picture.data.save(os.path.join(app.config['UPLOAD_FOLDER']), filename)
 
         newtrip = Trip(location = form.location.data,
             transport= form.transport.data,
