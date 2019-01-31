@@ -45,9 +45,6 @@ class NewTripForm(FlaskForm):
     submit = SubmitField('New Trip')
 
 class EditForm(FlaskForm):
-    oldpassword = PasswordField('Old Password')
-    password = PasswordField('New password')
-    password2 = PasswordField('Repeat new password')
     first_name = StringField('First name')
     last_name = StringField('Last name')
     bio = StringField('bio')
