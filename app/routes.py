@@ -115,4 +115,11 @@ def newpassword():
 @login_required
 def edit():
     form = EditForm()
+    if form.validate_on_submit():
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        current_user.bio = form.bio.data
+        current_user.spol = form.spol.data
+        db.session.commit()
+        return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)
