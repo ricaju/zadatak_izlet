@@ -28,6 +28,7 @@ header li a {
 	color: black;
 	background-color: #009999;
 	font-size: 40px;
+	
 }
 
 #advanced_button {
@@ -79,6 +80,7 @@ header li a {
 	position: absolute;
 	top: 45px;
 	left: 20px;
+	outline:none;
 }
 
 #dropdownMenuButton {
@@ -167,6 +169,7 @@ header li a {
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
   padding-left: 40px;
+  outline:none;
 }
 
 
