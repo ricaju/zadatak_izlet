@@ -3,7 +3,7 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="edit.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/edit.css') }}">
   </head>
   <header>
     <ul>
@@ -14,18 +14,19 @@
 <body>
 <div id="sc-edprofile">
   <h1>Edit Profile </h1>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
   <div class="sc-container">
-    <input type="text" placeholder="Old Password" />
-    <input type="password" placeholder="New Password" />
-    <input type="text" placeholder="First Name" />
-    <input type="text" placeholder="Last Name" />
-    <textarea placeholder="Bio" /></textarea>
-    <select>
-      <option value="">Male</option>
-      <option value="">Female</option>
-    </select>
-    <input type="submit" value="Submit" />
+    {{ form.oldpassword (placeholder="Old password") }}
+    {{ form.password (placeholder="New password") }}
+    {{ form.password2 (placeholder="Repeat new password") }}
+    {{ form.first_name (placeholder="First name") }}
+    {{ form.last_name (placeholder="Last name" ) }}
+    {{ form.bio (placeholder="About me")  }}
+    {{ form.spol }} 
+    {{ form.submit }}
   </div>
+  </form>
 </div>
 </body>
 </html>

@@ -43,7 +43,6 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/home')
-@app.route('/home/<my_trips>')
 @login_required
 def home():
     trip = Trip.query.first()
@@ -55,7 +54,18 @@ def home():
             data.append(trips_data)
         return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
-def home(my_trips):
+
+@app.route('/home/my_trips')
+@login_required
+def my_trips():
+    trip = Trip.query.first()
+    if trip is not None:
+        all_trips = Trip.query.filter_by(creator_id=current_user.id)
+        data = []
+        for trips in all_trips:
+            trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost, 'id' : trips.id}
+            data.append(trips_data)
+        return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
 
 
@@ -105,4 +115,16 @@ def newpassword():
 @login_required
 def edit():
     form = EditForm()
+    if form.validate_on_submit():
+        if not current_user.check_password(form.oldpassword.data):
+            flash('Your old password isn\'t correct')
+        else:
+            current_user.set_password(form.password.data)
+
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        current_user.bio = form.bio.data
+        current_user.spol = form.spol.data
+        db.session.commit()
+        return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)
