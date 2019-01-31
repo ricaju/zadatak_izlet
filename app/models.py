@@ -6,6 +6,12 @@ from app import login
 from sqlalchemy.dialects.sqlite import BLOB
 
 
+
+skupa = db.Table('skupa',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('trip_id', db.Integer, db.ForeignKey('trip.id'), primary_key=True)
+)
+
 class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64),index=True,unique=True)
@@ -37,6 +43,10 @@ class Trip(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     trip_rating = db.Column(db.Integer, default = '0')
+    user = db.relationship("User",
+                               secondary=skupa)
+
+ 
 
 class User_rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -48,7 +58,3 @@ class Comments(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     trip_id = db.Column(db.Integer,db.ForeignKey('trip.id'))
 
-    skupa = db.Table('skupa',
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
-    db.Column('trip_id', db.Integer, db.ForeignKey('trip.id'), primary_key=True)
-)
