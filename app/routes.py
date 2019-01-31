@@ -128,3 +128,9 @@ def edit():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)
+
+@app.route('/my_profile', methods= ['GET', 'POST'])
+@login_required
+def my_profile():
+    form = EditForm()
+    return render_template('my_profile.html', title='My Profile', form = form)
