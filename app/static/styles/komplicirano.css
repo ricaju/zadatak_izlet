@@ -31,26 +31,12 @@ header li a {
 	left: 20px;
 	letter-spacing: 3px;
 	border: 3px solid #009999;
-	font-family: 'Amatic SC', cursive;
-	font-weight: bold;
-	border-radius: 40%;
-	border: none;
-	background-color: #009999;
-	font-size: 40px;
-	outline: none;
 }
 
 #logout_btn {
 	position: absolute;
 	top: 15px;
 	right: 20px;
-	font-family: 'Amatic SC', cursive;
-	font-weight: bold;
-	border-radius: 40%;
-	border: none;
-	background-color: #009999;
-	font-size: 40px;
-	outline: none;
 }
 .card-signin {
   border: 0;
@@ -63,6 +49,26 @@ h5{
   font-family: 'Amatic SC', cursive;
 }
 
+ #logout_btn {
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	border-radius: 40%;
+	border: none;
+	background-color: #009999;
+	font-size: 40px;
+	outline: none;
+
+}
+#add_btn {
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	border-radius: 40%;
+	border: none;
+	background-color: #009999;
+	font-size: 40px;
+    outline: none;
+
+}
 #About {
     transform-origin: top left;
     width: 100%;
@@ -84,6 +90,7 @@ h5{
 	font-size: 40px;
 	color: black;
 	width: 100%;
+	outline: none; 
 }
 
 .btn:hover {
