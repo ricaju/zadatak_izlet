@@ -30,7 +30,7 @@
               {% endif %}
             {% endwith %}
             <h5 class="card-title text-center">Create your new trip</h5>
-            <form class="form-signin" action="{{ url_for('newtrip') }}" method="post" novalidate>
+            <form class="form-signin" action="{{ url_for('newtrip') }}" method="post" enctype=multipart/form-data novalidate >
               {{ form.hidden_tag() }}
               <div class="form-label-group">
                 {{ form.location(type="text", id="Location", class="form-control", placeholder="Location")}}
@@ -84,6 +84,13 @@
                 {{ form.about(type="text-area", id="About", class="form-control", placeholder="About the trip...")}}
                 <label for="About"></label>
                 {% for error in form.about.errors %}
+                <span style="color: red;">[{{error}}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="form-label-group">
+                {{ form.picture(type="file", method="post", class="form-control", placeholder="Add a picture", enctype="multipart/form-data")}}
+                {% for error in form.picture.errors %}
                 <span style="color: red;">[{{error}}]</span>
                 {% endfor %}
               </div>

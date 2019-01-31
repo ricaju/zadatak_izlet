@@ -1,9 +1,11 @@
 from flask import render_template, flash, redirect, url_for, request
+import os
 from app import app, db
 from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm, EditForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Trip
 from werkzeug.urls import url_parse
+from werkzeug.utils import secure_filename
 
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
@@ -63,7 +65,7 @@ def my_trips():
         all_trips = Trip.query.filter_by(creator_id=current_user.id)
         data = []
         for trips in all_trips:
-            trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost, 'id' : trips.id}
+            trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : str(trips.total_cost) + ' kn', 'id' : trips.id}
             data.append(trips_data)
         return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
@@ -74,16 +76,21 @@ def my_trips():
 @login_required
 def trip(id):
     trip = Trip.query.filter_by(id = id).first()
-    trip_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : trip.total_cost,
-    'date' : trip.date, 'transport' : trip.transport}
+    trip_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.total_cost) + ' kn',
+    'date' : trip.date.strftime('%d/%m/%Y'), 'transport' : trip.transport}
     return render_template('trip.html', title='Trip', data = trip_data)
 
 @app.route('/newtrip', methods=['GET', 'POST'])
 @login_required
 def newtrip():
-	form = NewTripForm()
-	if form.validate_on_submit():
-		newtrip = Trip(location = form.location.data, 
+    form = NewTripForm()
+    if form.validate_on_submit():
+        if form.picture:
+            import pdb; pdb.set_trace()
+            filename = secure_filename(form.picture.data.filename)
+            form.picture.data.save(os.path.join(app.config['UPLOAD_FOLDER']), filename)
+
+        newtrip = Trip(location = form.location.data, 
             transport= form.transport.data, 
             min_people= int(form.min_people.data), 
             max_people= int(form.max_people.data), 
@@ -91,10 +98,10 @@ def newtrip():
             date = form.date.data, 
             total_cost = int(form.total_cost.data),
             creator_id = current_user.id)
-		db.session.add(newtrip)
-		db.session.commit()
-		return redirect(url_for('home'))
-	return render_template('newTrip.html', title='New Trip', form=form)
+        db.session.add(newtrip)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('newTrip.html', title='New Trip', form=form)
 
 @app.route('/newpassword', methods=['GET', 'POST'])
 def newpassword():
