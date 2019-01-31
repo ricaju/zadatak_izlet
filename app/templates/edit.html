@@ -17,6 +17,9 @@
   <form action="" method="post">
     {{ form.hidden_tag() }}
   <div class="sc-container">
+    {{ form.oldpassword (placeholder="Old password") }}
+    {{ form.password (placeholder="New password") }}
+    {{ form.password2 (placeholder="Repeat new password") }}
     {{ form.first_name (placeholder="First name") }}
     {{ form.last_name (placeholder="Last name" ) }}
     {{ form.bio (placeholder="About me")  }}

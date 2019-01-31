@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, SelectField
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms.validators import DataRequired, EqualTo, Email
 from app.models import User, Trip
+from werkzeug.utils import secure_filename
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -42,11 +44,17 @@ class NewTripForm(FlaskForm):
     max_people = StringField('Maximum people', validators=[DataRequired()])
     total_cost = StringField('Total_cost', validators=[DataRequired()])
     about = StringField('About the trip', validators=[DataRequired()])
+    picture = FileField('Picture', validators=[FileAllowed(['jpg', 'png'], 'Images only!'), FileRequired()])
     submit = SubmitField('New Trip')
 
 class EditForm(FlaskForm):
+    oldpassword = PasswordField('Old password')
+    password = PasswordField('Password', )
+    password2 = PasswordField('Password', [EqualTo('password')])
     first_name = StringField('First name')
     last_name = StringField('Last name')
     bio = StringField('bio')
     spol = SelectField('spol', choices=[('Male', 'Male'), ('Female', 'Female')])
     submit = SubmitField('Submit')
+
+
