@@ -53,3 +53,5 @@ class EditForm(FlaskForm):
     bio = StringField('bio')
     spol = SelectField('spol', choices=[('Male', 'Male'), ('Female', 'Female')])
     submit = SubmitField('Submit')
+
+
