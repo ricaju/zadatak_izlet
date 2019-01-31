@@ -139,6 +139,29 @@ header li a {
 #add_pic:hover{
 	color:#009999;
 }
-.card-inner{
-    margin-left: 4rem;
+
+.vertical-menu {
+  width: 330px;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.vertical-menu a {
+  background-color: rgba(0,153,153,0.7); /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  color:#7FFFD4;/* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #7FFFD4; /* Add a green color to the "active/current" link */
+  color: black;
+}
+.banana {
+ resize: none;
 }
