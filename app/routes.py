@@ -116,7 +116,7 @@ def newpassword():
 def edit():
     form = EditForm()
     if form.validate_on_submit():
-        if not current_user.check_password(form.password.data):
+        if not current_user.check_password(form.oldpassword.data):
             flash('Your old password isn\'t correct')
         else:
             current_user.set_password(form.password.data)
@@ -128,3 +128,9 @@ def edit():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)
+
+@app.route('/profile', methods = ['GET', 'POST'])
+@login_required
+def profile():
+
+    return render_template('profile.html', title="Profile")
