@@ -139,3 +139,6 @@ header li a {
 #add_pic:hover{
 	color:#009999;
 }
+.card-inner{
+    margin-left: 4rem;
+}

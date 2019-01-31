@@ -150,3 +150,23 @@ header li a {
   font-size: 40px;
 
 }
+ div#sc-edprofile  {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 4%;
+  border: 1px solid #ccc;
+  padding: 4%;
+  font-family: 'Amatic SC', cursive;
+  font-size: 95%;
+  color: #555;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+div#sc-edprofile  {
+  width: 100%;
+}
+
+div#sc-edprofile  {
+  height: 100px;
+}
