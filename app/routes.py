@@ -74,8 +74,8 @@ def my_trips():
 @login_required
 def trip(id):
     trip = Trip.query.filter_by(id = id).first()
-    trip_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : trip.total_cost,
-    'date' : trip.date, 'transport' : trip.transport}
+    trip_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.total_cost) + ' kn',
+    'date' : trip.date.strftime('%d/%m/%Y'), 'transport' : trip.transport}
     return render_template('trip.html', title='Trip', data = trip_data)
 
 @app.route('/newtrip', methods=['GET', 'POST'])
