@@ -116,6 +116,11 @@ def newpassword():
 def edit():
     form = EditForm()
     if form.validate_on_submit():
+        if not current_user.check_password(form.oldpassword.data):
+            flash('Your old password isn\'t correct')
+        else:
+            current_user.set_password(form.password.data)
+
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
         current_user.bio = form.bio.data
