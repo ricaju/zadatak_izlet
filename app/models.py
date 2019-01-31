@@ -3,6 +3,7 @@ from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import login
+from sqlalchemy.dialects.sqlite import BLOB
 
 
 class User(UserMixin,db.Model):
@@ -36,6 +37,7 @@ class Trip(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     trip_rating = db.Column(db.Integer, default = '0')
+    trip_picture = db.Column(BLOB)
 
 class User_rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
