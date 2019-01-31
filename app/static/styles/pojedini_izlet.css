@@ -162,3 +162,6 @@ header li a {
   background-color: #7FFFD4; /* Add a green color to the "active/current" link */
   color: black;
 }
+.banana {
+ resize: none;
+}
