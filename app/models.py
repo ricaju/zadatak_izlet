@@ -21,9 +21,9 @@ class User(UserMixin,db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+    @login.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
 class Trip(db.Model):
     id = db.Column(db.Integer,primary_key=True)
@@ -37,7 +37,6 @@ class Trip(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     trip_rating = db.Column(db.Integer, default = '0')
-    trip_picture = db.Column(BLOB)
 
 class User_rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
