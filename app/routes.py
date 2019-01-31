@@ -135,3 +135,10 @@ def edit():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('edit.html', title='Edit Profile', form = form)
+
+@app.route('/profile', methods = ['GET', 'POST'])
+@login_required
+def profile():
+
+    return render_template('profile.html', title="Profile")
+

@@ -37,8 +37,23 @@ class Trip(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     creator_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     trip_rating = db.Column(db.Integer, default = '0')
+    skupa = db.relationship('User', secondary=skupa, 
+        primaryjoin=(skupa.c.user_id == id),
+        secondaryjoin=(skupa.c.trip:id == id),
+        backref=db.backref('skupa', lazy='dynamic'), lazy='dynamic')
+
 
 class User_rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_rating = db.Column(db.Integer)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+
+class Comments(db.Model):
+    id = db.Column(db.Integer, primary_key =True)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    trip_id = db.Column(db.Integer,db.ForeignKey('trip.id'))
+
+skupa = db.Table('skupa',
+db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+db.Column('trip_id', db.Integer, db.ForeignKey('trip.id'), primary_key=True)
+)
