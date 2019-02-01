@@ -45,7 +45,7 @@ class NewTripForm(FlaskForm):
     total_cost = StringField('Total_cost', validators=[DataRequired()])
     about = StringField('About the trip', validators=[DataRequired()])
     picture = FileField('Picture', validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
-    submit = SubmitField('New Trip')
+    submit = SubmitField('Submit')
 
 class EditForm(FlaskForm):
     oldpassword = PasswordField('Old password')
