@@ -24,42 +24,18 @@
   </div>
 </div>
 
-		<div class="box">
+	<div class="box">
   		<div class="container-1">
      			<span class="icon"><i class="fa fa-search"></i></span>
       			<input type="search" id="search" placeholder="Search..." autocomplete="off"/>
-      			<button id ="advanced_button" name="open_advanced">Advanced search</button>
-      			<script>
-					var input = document.getElementById("search");
-					input.addEventListener("keyup", function(event) {
-  						event.preventDefault();
-  						if (event.keyCode === 13) {
-   							var search = document.getElementById("search").value
-   							
-  						}
-					});
-				</script>
-      		<div id="advanced">
-      		<div>
-      			<input type="checkbox" id="by_destination" name="search_by_destination">
-      			<label for="search_by_rate">Search by destination</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_rate" name="search_by_rate">
-      			<label for="search_by_rate">Search by rate</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_price" name="search_by_price">
-      			<label for="search_by_price">Search by price</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_date" name="search_by_date">
-      			<label for="search_by_price">Search by date</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_username" name="search_by_username">
-      			<label for="search_by_username">Search by username</label>
-      		</div>
+      			<button id ="advanced_button" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Advanced</button>
+      			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    				<a class="dropdown-item">Search by destination</a>
+    				<a class="dropdown-item">Search by rate</a>
+    				<a class="dropdown-item">Search by price</a>
+    				<a class="dropdown-item"">Search by date</a>
+    				<a class="dropdown-item"">Search by username</a>
+  				</div>
       		</div>
 		</div>
 	</header>

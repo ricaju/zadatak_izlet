@@ -193,11 +193,18 @@ def edit():
 @app.route('/profile/<id>', methods = ['GET', 'POST'])
 @login_required
 def profile(id):
+    edit_btn = False
     user = User.query.filter_by(username = id).first()
+    if user == current_user:
+        edit_btn = True
     past_trips = JoinTrip.query.filter_by(user_id = user.id)
     past_trips_data = []
-    for trips in past_trips:
-        past_trips_data.append(trips)
+    if past_trips is not None:
+        for items in past_trips:
+            trip = Trip.query.filter_by(id = items.trip_id).first()
+            trip_data = {'location' : trip.location, 'id' : trip.id}
+            past_trips_data.append(trip_data)
     user_data = {'username' : user.username, 'first_name' : user.first_name, 'last_name' : user.last_name, 
-    'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture, 'past_trips' : past_trips_data}
+    'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture, 'past_trips' : past_trips_data,
+    'remove_edit' : edit_btn}
     return render_template('profile.html', title="Profile", data = user_data)
