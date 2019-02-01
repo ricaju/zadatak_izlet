@@ -101,14 +101,15 @@ header li a {
 
 #otherInfo{
     position: relative;
-    top: 70px;
+    top: 40px;
     font-size: 20px;
     font-weight: bold;
+
 }
 
 #otherInfo1 {
    position: relative;
-   top: 70px;
+   top: 40px;
    font-family: georgia;
    font-size: 20px;
    font-weight: bold;

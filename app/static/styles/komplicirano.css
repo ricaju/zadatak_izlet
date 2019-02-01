@@ -91,8 +91,16 @@ h5{
 	color: black;
 	width: 100%;
 	outline: none; 
+	margin-top: 50px;
+	margin-bottom: 60px;
 }
 
 .btn:hover {
 	color:#7FFFD4;
+}
+
+#picture{
+	background-color: transparent;
+    border: none;
+    color: white;
 }
