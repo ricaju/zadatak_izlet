@@ -55,10 +55,14 @@ class EditForm(FlaskForm):
     last_name = StringField('Last name')
     bio = StringField('bio')
     spol = SelectField('spol', choices=[('Male', 'Male'), ('Female', 'Female')])
+    picture = FileField('Picture', validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
     submit = SubmitField('Submit')
 
 class TripPageForm(FlaskForm):
 	comment = StringField('Comment', validators=[DataRequired()])
-	submit = SubmitField('Submit')
+	submit = SubmitField('Comment')
+
+class JoinATripForm(FlaskForm):
+	submit = SubmitField('Join A Trip')
 
 
