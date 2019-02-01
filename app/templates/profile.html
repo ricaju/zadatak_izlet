@@ -20,23 +20,29 @@
   </header>
 <body>
   
-  <img src="user.jpg" class="rounded-circle" alt="Profile picture">
+  {% if data.picture %}
+    <image src="{{ url_for('static', filename='uploads/' + data.picture) }}" class="rounded-circle">
+    </image>
+  {% else %}
+    <image src="{{ url_for('static', filename='styles/user.jpg') }}" class="rounded-circle">
+    </image>
+  {% endif %}
   <div class="square">
     <div id="about">
 
     <h6 id="userName">User name: </h6>
-    <p id="userName">{{ current_user.username }}</p>
+    <p id="userName">{{ data.username }}</p>
     <h6 id="otherInfo">First name: </h6>
-    <p id="otherInfo">{{ current_user.first_name }}</p>
+    <p id="otherInfo">{{ data.first_name }}</p>
     <h6 id="otherInfo">Last name: </h6>
-    <p id="otherInfo">{{ current_user.last_name }}</p>
+    <p id="otherInfo">{{ data.last_name }}</p>
     <h6 id="otherInfo">Email: </h6>
-    <p id="otherInfo1">{{ current_user.email }}</p>
+    <p id="otherInfo1">{{ data.email }}</p>
     <h6 id="otherInfo">Gender</h6>
-    <p id="otherInfo">{{ current_user.spol }}</p>
+    <p id="otherInfo">{{ data.spol }}</p>
     <h6 id="otherInfo">About me</h6>
     <textarea rows="5" cols="100" id="otherInfo" readonly="readonly">
-     {{ current_user.bio }}
+     {{ data.bio }}
     </textarea>
     <h6 id="otherInfo">Past trips</h6>
     <div style="overflow: scroll; width:300px; height:130px;" id="otherInfo">Padajuci izbornik a

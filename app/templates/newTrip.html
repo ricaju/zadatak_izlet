@@ -30,7 +30,7 @@
               {% endif %}
             {% endwith %}
             <h5 class="card-title text-center">Create your new trip</h5>
-            <form class="form-signin" action="{{ url_for('newtrip') }}" method="post" enctype=multipart/form-data novalidate >
+            <form class="form-signin" action="{{ url_for('newtrip') }}" method="POST" enctype=multipart/form-data novalidate >
               {{ form.hidden_tag() }}
               <div class="form-label-group">
                 {{ form.location(type="text", id="Location", class="form-control", placeholder="Location")}}
