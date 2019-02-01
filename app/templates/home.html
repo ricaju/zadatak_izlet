@@ -19,6 +19,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="{{ url_for('profile', id=current_user.username) }}">My profil</a>
     <a class="dropdown-item" href="{{ url_for('my_trips') }}">My trips</a>
+    <a class="dropdown-item" href="{{ url_for('trips_i_joined') }}">Trips I joined</a>
     <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
   </div>
 </div>
