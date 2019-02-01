@@ -11,8 +11,18 @@
 	<header>
 		<ul>
 			<li><a class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id = "add_btn">Back</button></a></li>
-			<li><a class="logout" href="{{ url_for('register') }}"><button class="btn2" id = "logout_btn">Log out</button></a></li>
 		</ul>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Settings
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{ url_for('profile', id=current_user.username) }}">My profil</a>
+    <a class="dropdown-item" href="{{ url_for('my_trips') }}">My trips</a>
+    <a class="dropdown-item" href="{{ url_for('trips_i_joined') }}">Trips I joined</a>
+    <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+  </div>
+</div>
 	</header>
 
 <h1 id="title">{{data.location}}</h1>

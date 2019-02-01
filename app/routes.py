@@ -193,7 +193,14 @@ def edit():
 @app.route('/profile/<id>', methods = ['GET', 'POST'])
 @login_required
 def profile(id):
-	user = User.query.filter_by(username = id).first()
-	user_data = {'username' : user.username, 'first_name' : user.first_name, 'last_name' : user.last_name,
-	'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture}
-	return render_template('profile.html', title="Profile", data = user_data)
+    user = User.query.filter_by(username = id).first()
+    past_trips = JoinTrip.query.filter_by(user_id = user.id)
+    past_trips_data = []
+    if past_trips is not None:
+        for item in past_trips:
+            trip = Trip.query.filter_by(id = item.trip_id).first()
+            trip_data = {'location': trip.location}
+            past_trips_data.append(trip_data)
+    user_data = {'username' : user.username, 'first_name' : user.first_name, 'last_name' : user.last_name, 
+    'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture, 'past_trips' : past_trips_data}
+    return render_template('profile.html', title="Profile", data = user_data)
