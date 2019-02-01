@@ -68,7 +68,11 @@
 
 <form name="rform" class="form-signin" action="" method="post" novalidate>
 	{{ rform.hidden_tag() }}
-	{{ rform.submit(class="btn3", id = "join_btn", type="submit")}}
+	{% if data.me_going %}
+		{{ rform.submit_cancel(class="btn3", id = "cancel_btn", type="submit")}}
+	{% else %}
+		{{ rform.submit(class="btn3", id = "join_btn", type="submit")}}
+	{% endif %}
 </form>
 
 
@@ -91,10 +95,10 @@
                         <div class="row">
                             <div class="col-md-2">
                                 {% if comment.user_picture %}
-                                  <image src="{{ url_for('static', filename='uploads/' + comment.user_picture) }}">
+                                  <image id ="user_picture" src="{{ url_for('static', filename='uploads/' + comment.user_picture) }}">
                                   </image>
                                 {% else %}
-                                  <image src="{{ url_for('static', filename='styles/user.jpg') }}">
+                                  <image id ="user_picture" src="{{ url_for('static', filename='styles/user.jpg') }}">
                                   </image>
                                 {% endif %}
                             </div>

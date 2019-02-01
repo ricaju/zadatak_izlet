@@ -70,6 +70,21 @@ def my_trips():
         return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
 
+@app.route('/home/trips_i_joined')
+@login_required
+def trips_i_joined():
+    trip = Trip.query.first()
+    if trip is not None:
+        data = []
+        form_join = JoinTrip.query.filter_by(user_id = current_user.id)
+        for items in form_join:
+            form_join_trip = Trip.query.filter_by(id = items.trip_id)
+            for trips in form_join_trip:
+                trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating,
+                'cost' : str(trips.total_cost) + ' kn', 'id' : trips.id}
+                data.append(trips_data)
+        return render_template('home.html', title='Home', data= data)
+    return render_template('home.html', title='Home')
 
 @app.route('/trip/<trip_id>', methods=['GET', 'POST'])
 @login_required
@@ -80,19 +95,22 @@ def trip(trip_id):
     joined_user = JoinTrip.query.filter_by(trip_id = trip.id)
     c_data = []
     people_going = []
+    me_going = False
     if comments is not None:
-    	for comment in comments:
-    		user2 = User.query.filter_by(id = comment.user_id).first()
-    		comment_data = {'comment' : comment.coments, 'username' : user2.username, 'user_picture' : user2.user_picture}
-    		c_data.append(comment_data)
+        for comment in comments:
+            user2 = User.query.filter_by(id = comment.user_id).first()
+            comment_data = {'comment' : comment.coments, 'username' : user2.username, 'user_picture' : user2.user_picture}
+            c_data.append(comment_data)
     if joined_user is not None:
-    	for people in joined_user:
-    		user3 = User.query.filter_by(id= people.user_id).first()
-    		people_data = {'username' : user3.username}
-    		people_going.append(people_data)
+        for people in joined_user:
+            user3 = User.query.filter_by(id= people.user_id).first()
+            if user3 == current_user:
+                me_going = True
+            people_data = {'username' : user3.username}
+            people_going.append(people_data)
     trip_data = {'trip' : trip.id, 'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.total_cost) + ' kn',
     'date' : trip.date.strftime('%d/%m/%Y'), 'transport' : trip.transport, 'creator' : user.username, 'comments' : c_data, 'users' : people_going,
-    'picture' : trip.trip_picture}
+    'picture' : trip.trip_picture, 'me_going' : me_going}
     form_comments = TripPageForm()
     form_join = JoinATripForm()
     if form_comments.validate_on_submit():
@@ -100,9 +118,14 @@ def trip(trip_id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
-    elif form_join.validate_on_submit():
+    elif form_join.validate_on_submit() and me_going == False:
         user_joins = JoinTrip(trip_id = trip.id, user_id = current_user.id)
         db.session.add(user_joins)
+        db.session.commit()
+        return redirect(url_for('trip', trip_id=trip.id))
+    elif form_join.validate_on_submit() and me_going == True:
+        user_joins = JoinTrip.query.filter_by(trip_id = trip.id, user_id = current_user.id).first()
+        db.session.delete(user_joins)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
     return render_template('trip.html', title='Trip', data = trip_data, lform=form_comments, rform = form_join)
@@ -170,7 +193,11 @@ def edit():
 @app.route('/profile/<id>', methods = ['GET', 'POST'])
 @login_required
 def profile(id):
-	user = User.query.filter_by(username = id).first()
-	user_data = {'username' : user.username, 'first_name' : user.first_name, 'last_name' : user.last_name,
-	'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture}
-	return render_template('profile.html', title="Profile", data = user_data)
+    user = User.query.filter_by(username = id).first()
+    past_trips = JoinTrip.query.filter_by(user_id = user.id)
+    past_trips_data = []
+    for trips in past_trips:
+        past_trips_data.append(trips)
+    user_data = {'username' : user.username, 'first_name' : user.first_name, 'last_name' : user.last_name, 
+    'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture, 'past_trips' : past_trips_data}
+    return render_template('profile.html', title="Profile", data = user_data)

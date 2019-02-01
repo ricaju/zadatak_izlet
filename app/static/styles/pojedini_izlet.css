@@ -109,6 +109,25 @@ header li a {
 	color:#7FFFD4;
 }
 
+#cancel_btn{
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    border-radius: 40%;
+    border: 3px solid #009999;
+    background-color: red;
+    font-size: 40px;
+    margin-left: 290px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    width: 50%;
+    border-radius: 60%;
+    outline:none;
+}
+
+#cancel_btn:hover{
+    color:#7FFFD4;
+}
+
 #title{
 	font-size: 100px;
     padding-bottom: 50px;
@@ -127,20 +146,25 @@ header li a {
 	margin-left: 335px;
 	background-color: rgba(218, 235, 233, 0.8);
 }
-#add_pic{
-	font-family: 'Amatic SC', cursive;
-	font-weight: bold;
-	border-radius: 40%;
-	border: none;
-	background-color: transparent;
-	font-size: 30px;
-	position: absolute;
-    margin-top: -200px;
-    margin-left: 480px;
+
+#slika_izleta{
+    min-width: 415px;
+    max-width: 415px;
+    max-height: 350px;
+    min-height: 350px;
+    position: absolute;
+    margin-left: 335px;
+    top: 252px;
 }
-#add_pic:hover{
-	color:#009999;
+
+#user_picture{
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    position: relative;
 }
+
 
 .vertical-menu {
   width: 330px;
