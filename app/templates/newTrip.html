@@ -10,9 +10,9 @@
 <header>
   <ul>
     <li><a  class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id="add_btn">Home</button></a></li>
-    <li><a  class="logout" href="{{ url_for('register') }}"><button class="btn2" id="logout_btn">Back</button></a></li>
   </ul>
 </header>
+
 
   <div class="container">
     <div class="row">
@@ -73,8 +73,8 @@
               </div>
 
               <div class="form-label-group">
-                {{ form.total_cost(type="text", id="Total cost", class="form-control", placeholder="Total cost")}}
-                <label for="Total_cost"></label>
+                {{ form.total_cost(type="text", id="Total cost", class="form-control", placeholder="Cost per")}}
+                <label for="Cost per user"></label>
                 {% for error in form.total_cost.errors %}
                 <span style="color: red;">[{{error}}]</span>
                 {% endfor %}
