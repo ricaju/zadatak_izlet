@@ -70,22 +70,21 @@ def my_trips():
         return render_template('home.html', title='Home', data= data)
     return render_template('home.html', title='Home')
 
-"""@app.route('/home/trips_i_joined')
+@app.route('/home/trips_i_joined')
 @login_required
 def trips_i_joined():
     trip = Trip.query.first()
     if trip is not None:
         data = []
-        joined_trips = []
-        all_trips = Trip.query.all()
-        for trip in all_trips:
-            form_join = JoinTrip.filter_by(trip_id = trip.id, user_id = current_user.id)
-            trip =
-            trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating,
-            'cost' : str(trips.total_cost) + ' kn', 'id' : trips.id}
-            data.append(trips_data)
+        form_join = JoinTrip.query.filter_by(user_id = current_user.id)
+        for items in form_join:
+            form_join_trip = Trip.query.filter_by(id = items.trip_id)
+            for trips in form_join_trip:
+                trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating,
+                'cost' : str(trips.total_cost) + ' kn', 'id' : trips.id}
+                data.append(trips_data)
         return render_template('home.html', title='Home', data= data)
-    return render_template('home.html', title='Home')"""
+    return render_template('home.html', title='Home')
 
 @app.route('/trip/<trip_id>', methods=['GET', 'POST'])
 @login_required
