@@ -109,6 +109,25 @@ header li a {
 	color:#7FFFD4;
 }
 
+#cancel_btn{
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    border-radius: 40%;
+    border: 3px solid #009999;
+    background-color: red;
+    font-size: 40px;
+    margin-left: 290px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    width: 50%;
+    border-radius: 60%;
+    outline:none;
+}
+
+#cancel_btn:hover{
+    color:#7FFFD4;
+}
+
 #title{
 	font-size: 100px;
     padding-bottom: 50px;

@@ -68,7 +68,11 @@
 
 <form name="rform" class="form-signin" action="" method="post" novalidate>
 	{{ rform.hidden_tag() }}
-	{{ rform.submit(class="btn3", id = "join_btn", type="submit")}}
+	{% if data.me_going is True %}
+		{{ rform.submit(class="btn3", id = "join_btn", type="submit")}}
+	{% else %}
+		{{ rform.submit_cancel(class="btn3", id = "cancel_btn", type="submit")}}
+	{% endif %}
 </form>
 
 
