@@ -45,7 +45,7 @@ class NewTripForm(FlaskForm):
     total_cost = StringField('Total_cost', validators=[DataRequired()])
     about = TextAreaField('About the trip', validators=[DataRequired()])
     picture = FileField('Picture', validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
-    submit = SubmitField('New Trip')
+    submit = SubmitField('Submit')
 
 class EditForm(FlaskForm):
     oldpassword = PasswordField('Old password')
@@ -59,7 +59,7 @@ class EditForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class TripPageForm(FlaskForm):
-	comment = StringField('Comment', validators=[DataRequired()])
+	comment = TextAreaField('Comment', validators=[DataRequired()])
 	submit = SubmitField('Comment')
 
 class JoinATripForm(FlaskForm):
