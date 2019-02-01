@@ -95,19 +95,22 @@ def trip(trip_id):
     joined_user = JoinTrip.query.filter_by(trip_id = trip.id)
     c_data = []
     people_going = []
+    me_going = False
     if comments is not None:
-    	for comment in comments:
-    		user2 = User.query.filter_by(id = comment.user_id).first()
-    		comment_data = {'comment' : comment.coments, 'username' : user2.username, 'user_picture' : user2.user_picture}
-    		c_data.append(comment_data)
+        for comment in comments:
+            user2 = User.query.filter_by(id = comment.user_id).first()
+            comment_data = {'comment' : comment.coments, 'username' : user2.username, 'user_picture' : user2.user_picture}
+            c_data.append(comment_data)
     if joined_user is not None:
-    	for people in joined_user:
-    		user3 = User.query.filter_by(id= people.user_id).first()
-    		people_data = {'username' : user3.username}
-    		people_going.append(people_data)
+        for people in joined_user:
+            user3 = User.query.filter_by(id= people.user_id).first()
+            if user3 == current_user:
+                me_going = True
+            people_data = {'username' : user3.username}
+            people_going.append(people_data)
     trip_data = {'trip' : trip.id, 'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : str(trip.total_cost) + ' kn',
     'date' : trip.date.strftime('%d/%m/%Y'), 'transport' : trip.transport, 'creator' : user.username, 'comments' : c_data, 'users' : people_going,
-    'picture' : trip.trip_picture}
+    'picture' : trip.trip_picture, 'me_going' : me_going}
     form_comments = TripPageForm()
     form_join = JoinATripForm()
     if form_comments.validate_on_submit():
@@ -115,9 +118,14 @@ def trip(trip_id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
-    elif form_join.validate_on_submit():
+    elif form_join.validate_on_submit() and me_going == False:
         user_joins = JoinTrip(trip_id = trip.id, user_id = current_user.id)
         db.session.add(user_joins)
+        db.session.commit()
+        return redirect(url_for('trip', trip_id=trip.id))
+    elif form_join.validate_on_submit() and me_going == True:
+        user_joins = JoinTrip.query.filter_by(trip_id = trip.id, user_id = current_user.id).first()
+        db.session.delete(user_joins)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
     return render_template('trip.html', title='Trip', data = trip_data, lform=form_comments, rform = form_join)

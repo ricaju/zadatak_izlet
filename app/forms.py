@@ -63,6 +63,7 @@ class TripPageForm(FlaskForm):
 	submit = SubmitField('Comment')
 
 class JoinATripForm(FlaskForm):
-	submit = SubmitField('Join A Trip')
+    submit = SubmitField('Join A Trip')
+    submit_cancel = SubmitField('Cancel A Trip')
 
 
