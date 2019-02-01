@@ -88,6 +88,7 @@ header li a {
     font-family: 'Amatic SC', cursive;
     margin-left: 750px;
     font-weight: 900;
+    text-decoration: none;
 }
 
 #join_btn{
@@ -114,7 +115,7 @@ header li a {
     font-weight: bold;
     border-radius: 40%;
     border: 3px solid #009999;
-    background-color: red;
+    background-color: #009999;
     font-size: 40px;
     margin-left: 290px;
     margin-top: 150px;
@@ -125,7 +126,7 @@ header li a {
 }
 
 #cancel_btn:hover{
-    color:#7FFFD4;
+    color: red;
 }
 
 #title{
@@ -190,4 +191,31 @@ header li a {
 }
 .banana {
  resize: none;
+}
+
+#write_comment{
+    width: 800px;
+    height: 200px;
+    resize: none;
+}
+#submit{
+    margin-left: 920px;
+    margin-top: -250px;
+    border: 2px solid #009999;
+    font-family: 'Amatic SC', cursive; 
+    font-size: 20px;
+}
+
+#submit:hover{
+   font-weight: bold;
+}
+
+#maker{
+    text-decoration: none;
+    color: black;
+}
+
+#maker:hover{
+  color:#7FFFD4;
+  font-weight: 900;  
 }

@@ -59,7 +59,7 @@ class EditForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class TripPageForm(FlaskForm):
-	comment = StringField('Comment', validators=[DataRequired()])
+	comment = TextAreaField('Comment', validators=[DataRequired()])
 	submit = SubmitField('Comment')
 
 class JoinATripForm(FlaskForm):
