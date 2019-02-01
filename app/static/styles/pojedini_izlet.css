@@ -21,7 +21,7 @@ header li a {
 	text-decoration: none;
 }
 
-#add_btn, #logout_btn,#dropdownMenuButton{
+#add_btn, #dropdownMenuButton{
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	border-radius: 40%;
@@ -31,7 +31,7 @@ header li a {
     outline:none;
 }
 
-#add_btn:hover,#dropdownMenuButton {
+#add_btn:hover{
 	color:#7FFFD4;
 }
 
@@ -49,14 +49,14 @@ header li a {
     outline:none;
 }
 
-#add_btn,#dropdownMenuButton {
+#add_btn{
 	position: absolute;
 	top: 15px;
 	left: 20px;
     outline:none;
 }
 
-#logout_btn,#dropdownMenuButton {
+#dropdownMenuButton {
 	position: absolute;
 	top: 15px;
 	right: 20px;
