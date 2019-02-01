@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
-UPLOAD_FOLDER = 'app/uploads'
+UPLOAD_FOLDER = 'app/static/uploads'
 
 app = Flask(__name__)
 app.config.from_object(Config)

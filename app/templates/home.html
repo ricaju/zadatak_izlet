@@ -17,7 +17,7 @@
     Settings
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="{{ url_for('profile') }}">My profil</a>
+    <a class="dropdown-item" href="{{ url_for('profile', id=current_user.username) }}">My profil</a>
     <a class="dropdown-item" href="{{ url_for('my_trips') }}">My trips</a>
     <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
   </div>
@@ -69,13 +69,20 @@
 <div class="container" id="izlet"> 
 	<div class="row" id="izlet_row">
 		<div class="col-md-">
-			<a href = "{{ url_for('trip', id=trip.id) }}">
-				<image src="static/styles/izlet_default.jpg" id="slika_izleta">
+      {% if trip.picture %}
+      <a href = "{{ url_for('trip', trip_id=trip.id) }}">
+        <image src="{{ url_for('static', filename='uploads/' + trip.picture) }}" id = "slika_izleta">
+        </image>
+      </a>
+      {% else %}
+			<a href = "{{ url_for('trip', trip_id=trip.id) }}">
+				<image src="{{ url_for('static', filename='styles/izlet_default.jpg') }}" id="slika_izleta">
 				</image>
 			</a>
+      {% endif %}
 		</div>
 		<div class="col-lg-" id="text_izleta">
-			<a id = "link_na_str" href = "{{ url_for('trip', id=trip.id) }}">
+			<a id = "link_na_str" href = "{{ url_for('trip', trip_id=trip.id) }}">
 				<h1 id="destinacija_izleta">{{trip.location}}</h1>
 			</a>
 			<p>{{trip.about}}</p id="o_izletu">
