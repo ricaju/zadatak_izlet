@@ -32,9 +32,6 @@ header li a {
 }
 
 #advanced_button {
-	display: none;
-	left: 440px;
-    bottom: 90px;
     position: relative;
     border: 3px solid #009999;
 }

@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 import os
 from app import app, db
-from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm, EditForm, TripPageForm, JoinATripForm
+from app.forms import RegistrationForm, LoginForm, NewTripForm, NewPasswordForm, EditForm, TripPageForm, JoinATripForm, HomeSearchForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Trip, Comments, JoinTrip
 from werkzeug.urls import url_parse
@@ -44,18 +44,31 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/home')
+@app.route('/home/', methods=['GET', 'POST'])
 @login_required
 def home():
     trip = Trip.query.first()
+    form = HomeSearchForm()
+    if form.validate_on_submit():
+        home_search()
     if trip is not None:
         all_trips = Trip.query.all()
         data = []
         for trips in all_trips:
             trips_data = {'location' : trips.location, 'about' : trips.about, 'rating' : trips.trip_rating, 'cost' : trips.total_cost, 'id' : trips.id, 'picture' : trips.trip_picture}
             data.append(trips_data)
-        return render_template('home.html', title='Home', data= data)
+        return render_template('home.html', title='Home', data= data, form= form)
     return render_template('home.html', title='Home')
+
+def home_search():
+    trips = Trip.query.all()
+    form = HomeSearchForm()
+    trips = Trip.query.filter_by(location = form.search.data)
+    data = []
+    for trip in trips:
+        trips_data = {'location' : trip.location, 'about' : trip.about, 'rating' : trip.trip_rating, 'cost' : trip.total_cost, 'id' : trip.id, 'picture' : trip.trip_picture}
+        data.append(trips_data)
+    return render_template('home.html', title='Home', data= data, form= form)
 
 @app.route('/home/my_trips')
 @login_required
@@ -193,14 +206,18 @@ def edit():
 @app.route('/profile/<id>', methods = ['GET', 'POST'])
 @login_required
 def profile(id):
+    edit_btn = False
     user = User.query.filter_by(username = id).first()
+    if user == current_user:
+        edit_btn = True
     past_trips = JoinTrip.query.filter_by(user_id = user.id)
     past_trips_data = []
     if past_trips is not None:
-        for item in past_trips:
-            trip = Trip.query.filter_by(id = item.trip_id).first()
-            trip_data = {'location': trip.location}
+        for items in past_trips:
+            trip = Trip.query.filter_by(id = items.trip_id).first()
+            trip_data = {'location' : trip.location, 'id' : trip.id}
             past_trips_data.append(trip_data)
     user_data = {'username' : user.username, 'first_name' : user.first_name, 'last_name' : user.last_name, 
-    'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture, 'past_trips' : past_trips_data}
+    'sex' : user.spol, 'bio' : user.bio, 'email' : user.email, 'picture' : user.user_picture, 'past_trips' : past_trips_data,
+    'remove_edit' : edit_btn}
     return render_template('profile.html', title="Profile", data = user_data)

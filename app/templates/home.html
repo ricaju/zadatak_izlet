@@ -17,49 +17,28 @@
     Settings
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="{{ url_for('profile', id=current_user.username) }}">My profil</a>
+    <a class="dropdown-item" href="{{ url_for('profile', id=current_user.username) }}">My profile</a>
     <a class="dropdown-item" href="{{ url_for('my_trips') }}">My trips</a>
     <a class="dropdown-item" href="{{ url_for('trips_i_joined') }}">Trips I joined</a>
     <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
   </div>
 </div>
 
-		<div class="box">
+	<div class="box">
   		<div class="container-1">
+  			    <form class="form-signin" action="" method="POST" novalidate >
+              	{{ form.hidden_tag() }}
      			<span class="icon"><i class="fa fa-search"></i></span>
-      			<input type="search" id="search" placeholder="Search..." autocomplete="off"/>
-      			<button id ="advanced_button" name="open_advanced">Advanced search</button>
-      			<script>
-					var input = document.getElementById("search");
-					input.addEventListener("keyup", function(event) {
-  						event.preventDefault();
-  						if (event.keyCode === 13) {
-   							var search = document.getElementById("search").value
-   							
-  						}
-					});
-				</script>
-      		<div id="advanced">
-      		<div>
-      			<input type="checkbox" id="by_destination" name="search_by_destination">
-      			<label for="search_by_rate">Search by destination</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_rate" name="search_by_rate">
-      			<label for="search_by_rate">Search by rate</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_price" name="search_by_price">
-      			<label for="search_by_price">Search by price</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_date" name="search_by_date">
-      			<label for="search_by_price">Search by date</label>
-      		</div>
-      		<div>
-      			<input type="checkbox" id="by_username" name="search_by_username">
-      			<label for="search_by_username">Search by username</label>
-      		</div>
+      			{{ form.search(type="text", id="search", placeholder="Search...", autocomplete="off")}}
+      			<button id ="advanced_button" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</button>
+      			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      				{{ form.submit_destination(class="dropdown-item", type="submit")}}
+      				<!--{{ form.submit_rate(class="dropdown-item", type="submit", href="{{ url_for('home/search/2') }}")}}
+      				{{ form.submit_price(class="dropdown-item", type="submit", href="{{ url_for('home/search/3') }}")}}
+      				{{ form.submit_date(class="dropdown-item", type="submit", href="{{ url_for('home/search/4') }}")}}
+      				{{ form.submit_username(class="dropdown-item", type="submit", href="{{ url_for('home/search/5') }}")}}-->
+  				</div>
+  			</form>
       		</div>
 		</div>
 	</header>

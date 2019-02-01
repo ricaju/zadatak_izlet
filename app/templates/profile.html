@@ -15,7 +15,9 @@
   <header>
     <ul>
       <li><a class="newtrip" href="{{ url_for('home') }}"><button class="btn1" id = "add_btn">Back</button></a></li>
-      <li><a class="logout" href="{{ url_for('edit') }}"><button class="btn2" id = "logout_btn">Edit profile</button></a></li>
+      {% if data.remove_edit %}
+        <li><a class="logout" href="{{ url_for('edit') }}"><button class="btn2" id = "logout_btn">Edit profile</button></a></li>
+      {% endif %}
     </ul>
   </header>
 <body>
@@ -38,7 +40,7 @@
     <p id="otherInfo">{{ data.last_name }}</p>
     <h6 id="otherInfo">Email: </h6>
     <p id="otherInfo1">{{ data.email }}</p>
-    <h6 id="otherInfo">Gender</h6>
+    <h6 id="otherInfo">Gender:</h6>
     <p id="otherInfo">{{ data.sex }}</p>
     <h6 id="otherInfo">About me</h6>
     <textarea rows="5" cols="100" id="otherInfo" readonly="readonly">
@@ -47,7 +49,8 @@
     <h6 id="otherInfo">Past trips</h6>
     <div style="overflow-y: scroll; width:500px; height:70px;" id="otherInfo">
     {% for trip in data.past_trips %}
-      <a href="{{ url_for('trip', trip_id=trip.id) }}">{{trip.location }}</a>
+      <a href="{{ url_for('trip', trip_id=trip.id) }}">{{trip.location}}</a>
+      <br>
     {% endfor %}
     </div>
     </div>

@@ -66,4 +66,10 @@ class JoinATripForm(FlaskForm):
     submit = SubmitField('Join A Trip')
     submit_cancel = SubmitField('Cancel A Trip')
 
-
+class HomeSearchForm(FlaskForm):
+    search = StringField('',validators=[DataRequired()])
+    submit_destination = SubmitField('Search by destination')
+    submit_rate = SubmitField('Search by rate')
+    submit_price = SubmitField('Search by price')
+    submit_date = SubmitField('Search by date')
+    submit_username = SubmitField('Search by username')
