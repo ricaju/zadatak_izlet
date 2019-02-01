@@ -30,8 +30,9 @@
 }
 
 #sc-edprofile {
-  background: #f0f0f0;
-  width: 400px;
+
+ /* background: #f0f0f0;*/
+  width: 700px;
   margin: 0 auto;
   margin-top: 8px;
   margin-bottom: 2%;
@@ -53,13 +54,14 @@
 div#sc-edprofile .sc-container {
   background: #f0f0f0;
   padding: 6% 4%;
+  margin-bottom: 100px;
 }
 
 div#sc-edprofile input[type="email"],
 div#sc-edprofile input[type="text"],
 div#sc-edprofile input[type="password"], div#sc-edprofile select, div#sc-edprofile textarea {
   width: 100%;
-  background: #fff;
+  background:#fff ;
   margin-bottom: 4%;
   border: 1px solid #ccc;
   padding: 4%;
@@ -88,6 +90,7 @@ div#sc-edprofile input[type="submit"] {
   font-size: 20px;
   border-radius: 50%;
   cursor: pointer;
+  margin-top: 35px;
   /*transition: background .3s;
   -webkit-transition: background .3s;*/
 }
@@ -149,4 +152,40 @@ header li a {
   background-color: #009999;
   font-size: 40px;
 
+}
+ div#sc-edprofile  {
+ /* width: 100%;*/
+ /* background: #fff;*/
+  margin-bottom: 4%;
+ /* border: 1px solid #ccc;*/
+  padding: 4%;
+  font-family: 'Amatic SC', cursive;
+  font-size: 95%;
+  color: #555;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+/*div#sc-edprofile  {
+  width: 100%;
+}*/
+
+div#sc-edprofile  {
+  height: 100px;
+}
+
+.edit{
+    display: block;
+    /* width: 100%; */
+    height: calc(2.25rem + 2px);
+    /* padding: .375rem .75rem; */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    /* background-color: #fff; */
+    /* background-clip: padding-box; */
+    /* border: 1px solid #ced4da; */
+    /* border-radius: .25rem; */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

@@ -20,7 +20,7 @@
 
 
 <div class="container">
-	
+
 	<div class="row">
 		<div class="col-lg-" id = "pojedini_about">
 			{{data.about}}
@@ -29,31 +29,94 @@
 	</div>
 	
 <div class="container" id = "info">
-      
+
     <h3>PRICE</h3>
-	<p>{{data.cost}}</p> 
-        
+	<p>{{data.cost}}</p>
+
     <h3>TRANSPORT</h3>
 	<p>{{data.transport}}</p>
-    
+
     <h3>DATE</h3>
     <p>{{data.date}}</p>
 
     <h3>RATING</h3>
 	<p>{{data.rating}}</p>
 
+	<h3>MADE BY</h3>
+	<p><a href="{{ url_for('profile', id=data.creator) }}">{{data.creator}}</a></p>
+
 	<h3>JOINED USERS</h3>
-	<p>padajuci izbornik?</p>    
-     
-    
-    
+	<div class="vertical-menu">
+		{% for user in data.users %}
+  			<a href = "{{ url_for('profile', id=user.username) }}">{{user.username}}</a>
+  		{% endfor %}
+	</div>
+
+
+
 </div>
 
 <div class="picturePlace"></div>
-<button class="btn4" id="add_pic">Add a picture</button>
+{% if data.picture %}
+        <image src="{{ url_for('static', filename='uploads/' + data.picture) }}" id = "slika_izleta">
+        </image>
+{% else %}
+        <image src="{{ url_for('static', filename='styles/izlet_default.jpg') }}" id="slika_izleta">
+        </image>
+{% endif %}
 <div id="googleMap" style="width: 415px; height: 350px; margin-left: 335px; position: relative;"></div>
 
-<button class="btn3" id = "join_btn">Join the trip</button>
+<form name="rform" class="form-signin" action="" method="post" novalidate>
+	{{ rform.hidden_tag() }}
+	{% if data.me_going %}
+		{{ rform.submit_cancel(class="btn3", id = "cancel_btn", type="submit")}}
+	{% else %}
+		{{ rform.submit(class="btn3", id = "join_btn", type="submit")}}
+	{% endif %}
+</form>
+
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+            	<form name="lform" class="form-signin" action="" method="post" novalidate>
+            		 {{ lform.hidden_tag() }}
+                     {{ lform.comment(type = "text-area", id="write_comment", placeholder="Comment...", class="form-control")}}
+                     {{ lform.submit(class="btn btn-sm text-uppercase", type="submit")}}
+                </form>
+            </div>
+            	{% for comment in data.comments %}
+                <div class="card card-inner">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                {% if comment.user_picture %}
+                                  <image id ="user_picture" src="{{ url_for('static', filename='uploads/' + comment.user_picture) }}">
+                                  </image>
+                                {% else %}
+                                  <image id ="user_picture" src="{{ url_for('static', filename='styles/user.jpg') }}">
+                                  </image>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-10">
+                                <p><a href="{{ url_for('profile', id=comment.username) }}"><strong>{{comment.username}}</strong></a></p>
+                                <p>{{comment.comment}}</p>
+                                <p>
+                                    <a class="float-right btn btn-outline-primary ml-2">  <i class="fa fa-reply"></i> Reply</a>
+                                    <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+        </div>
+    </div>
+</div>
 
 
 
@@ -74,6 +137,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr3Xo2yuO_ROrGxQ3YQ7FlzHgQsrIJT9I&callback=myMap"></script>
+
 
 </body>
 </html>

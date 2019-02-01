@@ -28,6 +28,7 @@ header li a {
 	border: none;
 	background-color: #009999;
 	font-size: 40px;
+    outline:none;
 }
 
 #add_btn:hover {
@@ -45,18 +46,21 @@ header li a {
 #link_na_str {
 	color: black;
 	text-decoration: none;
+    outline:none;
 }
 
 #add_btn {
 	position: absolute;
 	top: 15px;
 	left: 20px;
+    outline:none;
 }
 
 #logout_btn {
 	position: absolute;
 	top: 15px;
 	right: 20px;
+    outline:none;
 }
 
 #pojedini_about{
@@ -98,15 +102,34 @@ header li a {
     margin-bottom: 50px;
     width: 50%;
     border-radius: 60%;
+    outline:none;
 }
 
 #join_btn:hover{
 	color:#7FFFD4;
 }
 
+#cancel_btn{
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    border-radius: 40%;
+    border: 3px solid #009999;
+    background-color: red;
+    font-size: 40px;
+    margin-left: 290px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    width: 50%;
+    border-radius: 60%;
+    outline:none;
+}
+
+#cancel_btn:hover{
+    color:#7FFFD4;
+}
+
 #title{
 	font-size: 100px;
-    /* padding-left: 650px; */
     padding-bottom: 50px;
     align-items: center;
     justify-content: center;
@@ -114,9 +137,7 @@ header li a {
     display: flex;
     font-family: 'Amatic SC', cursive;
     color: black;
-    /* background: -webkit-linear-gradient(#009999, #7FFFD4, #009999); */
-    /*-webkit-background-clip: text;*/
-    /* -webkit-text-fill-color: transparent; */
+ 
 }
 .picturePlace{
 	position: relative;
@@ -125,17 +146,48 @@ header li a {
 	margin-left: 335px;
 	background-color: rgba(218, 235, 233, 0.8);
 }
-#add_pic{
-	font-family: 'Amatic SC', cursive;
-	font-weight: bold;
-	border-radius: 40%;
-	border: none;
-	background-color: transparent;
-	font-size: 30px;
-	position: absolute;
-    margin-top: -200px;
-    margin-left: 480px;
+
+#slika_izleta{
+    min-width: 415px;
+    max-width: 415px;
+    max-height: 350px;
+    min-height: 350px;
+    position: absolute;
+    margin-left: 335px;
+    top: 252px;
 }
-#add_pic:hover{
-	color:#009999;
+
+#user_picture{
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    position: relative;
+}
+
+
+.vertical-menu {
+  width: 330px;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.vertical-menu a {
+  background-color: rgba(0,153,153,0.7); 
+  color: black; 
+  display: block; /* Make the links appear below each other */
+  padding: 12px; 
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  color:#7FFFD4;
+}
+
+.vertical-menu a.active {
+  background-color: #7FFFD4; 
+  color: black;
+}
+.banana {
+ resize: none;
 }

@@ -14,7 +14,7 @@
 <body>
 <div id="sc-edprofile">
   <h1>Edit Profile </h1>
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
   <div class="sc-container">
     {{ form.oldpassword (placeholder="Old password") }}
@@ -23,7 +23,8 @@
     {{ form.first_name (placeholder="First name") }}
     {{ form.last_name (placeholder="Last name" ) }}
     {{ form.bio (placeholder="About me")  }}
-    {{ form.spol }} 
+    {{ form.spol }}
+    {{ form.picture(type="file", method="post", id="edit" ,class="form-control", placeholder="Add a picture", enctype="multipart/form-data")}}
     {{ form.submit }}
   </div>
   </form>
