@@ -118,13 +118,13 @@ def trip(trip_id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
-    elif form_join.validate_on_submit() and me_going == False():
+    elif form_join.validate_on_submit() and me_going == False:
         user_joins = JoinTrip(trip_id = trip.id, user_id = current_user.id)
         db.session.add(user_joins)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
-    elif form_join.validate_on_submit() and me_going == True():
-        user_joins = JoinTrip(trip_id = trip.id, user_id = current_user.id)
+    elif form_join.validate_on_submit() and me_going == True:
+        user_joins = JoinTrip.query.filter_by(trip_id = trip.id, user_id = current_user.id).first()
         db.session.delete(user_joins)
         db.session.commit()
         return redirect(url_for('trip', trip_id=trip.id))
